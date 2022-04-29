@@ -1,12 +1,15 @@
 import React from "react";
 import "../Styles/homepage.css"
 import {Link} from "react-router-dom";
+import {useProfile} from "../contexts/profile-context";
 
 const HomeComponents = (
     {
         login = false
     }
 ) => {
+    const {profile} = useProfile();
+
     return (
         <>
             {
@@ -42,7 +45,7 @@ const HomeComponents = (
                     <h2>Welcome back,
                         <text></text>
                         <Link to="/huskyboxd/profile" className="text-decoration-none">
-                            <span>JoJo</span>
+                            <span>{profile && profile.username}</span>
                         </Link>.
                         Here’s what we’ve been watching...
                     </h2>
