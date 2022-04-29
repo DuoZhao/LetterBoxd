@@ -21,6 +21,7 @@ import LoginScreen from "./components/HuskyBoxd/LoginScreen/LoginScreen";
 import MovieDetailScreen from "./components/HuskyBoxd/MovieDetailScreen/MovieDetailScreen";
 import PrivacyScreen from "./components/HuskyBoxd/PopularList/privacy";
 import {ProfileProvider} from "./components/HuskyBoxd/contexts/profile-context";
+import SecureRoute from "./components/HuskyBoxd/secures/secure-route";
 
 function App() {
     return (
@@ -41,7 +42,9 @@ function App() {
                     <Route path="search" element={<SearchScreen/>}/>
                     <Route path="search/:movieSearch" element={<SearchScreen/>}/>
                     <Route path="profile/:userId" element={<ProfileScreen/>}/>
-                    <Route path="home" element={<HomeScreen/>}/>
+                    <Route path="home" element={
+                        <HomeScreen/>
+                    }/>
                 </Route>
             </Routes>
         </BrowserRouter>

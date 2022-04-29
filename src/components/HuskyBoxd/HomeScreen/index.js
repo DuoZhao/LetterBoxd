@@ -10,7 +10,7 @@ const HomeScreen = ({
                         login
                     }) => {
 
-    const profile = useProfile();
+    const {profile} = useProfile();
     login = (profile !== null);
     console.log(profile === null);
     console.log(profile.username);
