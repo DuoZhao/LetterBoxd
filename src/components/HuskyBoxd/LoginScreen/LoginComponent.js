@@ -12,7 +12,7 @@ const LoginComponent = () => {
                 alert("Please enter your USERNAME, EMAIL and PASSWORD");
                 return;
             }
-            if (checkboxRef && signupRealIDNumber.current.value) {
+            if (checkboxRef.current.checked && signupRealIDNumber.current.value) {
                 await signupRealID(
                     signupUserName.current.value,
                     signupEmail.current.value,
@@ -20,7 +20,8 @@ const LoginComponent = () => {
                     signupRealIDNumber.current.value
                 )
                 navigate("/huskyboxd/home")
-            } else if (checkboxRef) {
+            } else if (checkboxRef.current.checked) {
+                console.log(checkboxRef.current.checked);
                 alert("If you choose to sign up as a real person account, you should enter your real id.");
             } else {
                 await signup(
