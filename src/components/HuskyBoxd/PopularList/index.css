@@ -1,0 +1,42 @@
+
+.image1 {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+
+    z-index: 5;
+}
+
+.image2 {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+
+    z-index: 4;
+}
+
+.image3 {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+
+    z-index: 3;
+}
+
+.image4 {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+
+    z-index: 2;
+}
+
+.image5 {
+    position: absolute;
+    top: 0px;
+    left: 200px;
+
+    z-index: 1;
+}
+
+

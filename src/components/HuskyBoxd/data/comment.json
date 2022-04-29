@@ -1,0 +1,55 @@
+
+
+
+[
+  {
+    "m_poster" : "../pictures/images/poster/batman.jpg",
+    "m_name" : "SpiderMan",
+    "m_year" : "2022",
+    "u_avatar" : "../pictures/images/avatar/1.jpg",
+    "u_name": "Giorno Giovanna",
+    "u_comments": "Is it good? Is it Bad? I can't tell you, and neither can anyone else, because there is absolutely no way at the moment to watch this movie on any format. Any of those currently 27 people who say they've watched it are lying",
+    "likes" : 19
+  },
+
+  {
+    "m_poster" : "../pictures/images/poster/avatar.jpeg",
+    "m_name" : "SpiderMan",
+    "m_year" : "2022",
+    "u_avatar" : "../pictures/images/avatar/1.jpg",
+    "u_name": "Giorno Giovanna",
+    "u_comments": "Is it good? Is it Bad? I can't tell you, and neither can anyone else, because there is absolutely no way at the moment to watch this movie on any format. Any of those currently 27 people who say they've watched it are lying",
+    "likes" : 19
+  },
+
+  {
+    "m_poster" : "../pictures/images/poster/avengers.jpg",
+    "m_name" : "SpiderMan",
+    "m_year" : "2022",
+    "u_avatar" : "../pictures/images/avatar/1.jpg",
+    "u_name": "Giorno Giovanna",
+    "u_comments": "Is it good? Is it Bad? I can't tell you, and neither can anyone else, because there is absolutely no way at the moment to watch this movie on any format. Any of those currently 27 people who say they've watched it are lying",
+    "likes" : 19
+  },
+
+  {
+    "m_poster" : "../pictures/images/poster/Dune.jpeg",
+    "m_name" : "SpiderMan",
+    "m_year" : "2022",
+    "u_avatar" : "../pictures/images/avatar/1.jpg",
+    "u_name": "Giorno Giovanna",
+    "u_comments": "Is it good? Is it Bad? I can't tell you, and neither can anyone else, because there is absolutely no way at the moment to watch this movie on any format. Any of those currently 27 people who say they've watched it are lying",
+    "likes" : 19
+  },
+
+  {
+    "m_poster" : "../pictures/images/poster/boys.jpg",
+    "m_name" : "SpiderMan",
+    "m_year" : "2022",
+    "u_avatar" : "../pictures/images/avatar/1.jpg",
+    "u_name": "Giorno Giovanna",
+    "u_comments": "Is it good? Is it Bad? I can't tell you, and neither can anyone else, because there is absolutely no way at the moment to watch this movie on any format. Any of those currently 27 people who say they've watched it are lying",
+    "likes" : 19
+  }
+
+]

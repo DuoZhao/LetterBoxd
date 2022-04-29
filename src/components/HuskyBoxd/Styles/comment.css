@@ -1,0 +1,56 @@
+
+
+.wd-movie-name {
+    font-family: TiemposHeadlineWeb-Bold,Georgia,serif;
+    color: white;
+    font-size: 21px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
+
+.wd-movie-time {
+    color: #9ab;
+    font-family: Graphik-Regular-Web,sans-serif;
+    font-size: 17.5px;
+    font-weight: 400;
+}
+
+.wd-username {
+    color: #678;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+.wd-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 12px;
+    border: 1px solid gray;
+}
+
+.wd-comment {
+    font-family: TiemposTextWeb-Regular,Georgia,serif;
+    padding-bottom: 10px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(153, 170, 187);
+}
+
+.wd-divider {
+    border-bottom: 1px solid #456;
+}
+
+.fa-heart{
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.wd-number {
+    font-family: TiemposTextWeb-Regular,Georgia,serif;
+    font-size: 15px;
+    color: rgb(153, 170, 187);
+}
+

@@ -1,0 +1,310 @@
+
+/*WALL-PAPER*/
+.wd-container-wallpaper-header {
+    width: 100%;
+    height: 675px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.wd-container-wallpaper{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 675px;
+}
+.wd-wallpaper{
+    position: absolute;
+    width: 100%;
+    height: 99.95%;
+    background-image: url("https://wallpaper.dog/large/20497983.jpg");
+    background-position: center -121px;
+}
+.wd-effect-wallpaper {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    width: 1200px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 675px;
+    background-repeat: no-repeat;
+    background-image:
+            linear-gradient(90deg,#14181d 0,rgba(20,24,29,.98556487) .97%,
+            rgba(20,24,29,.9451312) 2.07833333%,rgba(20,24,29,.88300656) 3.29666667%,
+            rgba(20,24,29,.80349854) 4.60166667%,rgba(20,24,29,.71091472) 5.96666667%,
+            rgba(20,24,29,.60956268) 7.365%,rgba(20,24,29,.50375) 8.77166667%,
+            rgba(20,24,29,.39778426) 10.16%,rgba(20,24,29,.29597303) 11.505%,
+            rgba(20,24,29,.20262391) 12.78%,rgba(20,24,29,.12204446) 13.95833333%,
+            rgba(20,24,29,.05854227) 15.01666667%,rgba(20,24,29,.01642493) 15.92833333%,
+            rgba(20,24,29,0) 16.66666667%,rgba(20,24,29,0) 83.33333333%,
+            rgba(20,24,29,.01642493) 84.07166667%,rgba(20,24,29,.05854227) 84.98333333%,
+            rgba(20,24,29,.12204446) 86.04166667%,rgba(20,24,29,.20262391) 87.22%,
+            rgba(20,24,29,.29597303) 88.495%,rgba(20,24,29,.39778426) 89.84%,
+            rgba(20,24,29,.50375) 91.22833333%,rgba(20,24,29,.60956268) 92.635%,
+            rgba(20,24,29,.71091472) 94.03333333%,rgba(20,24,29,.80349854) 95.39833333%,
+            rgba(20,24,29,.88300656) 96.70333333%,rgba(20,24,29,.9451312) 97.92166667%,
+            rgba(20,24,29,.98556487) 99.03%,#14181d),
+
+            linear-gradient(0deg,#14181d 0,#14181d 21.48148148%,rgba(20,24,29,.98556487) 23.63703704%,
+            rgba(20,24,29,.9451312) 26.1%,rgba(20,24,29,.88300656) 28.80740741%,
+            rgba(20,24,29,.80349854) 31.70740741%,rgba(20,24,29,.71091472) 34.74074074%,
+            rgba(20,24,29,.60956268) 37.84814815%,rgba(20,24,29,.50375) 40.97407407%,rgba(20,24,29,.39778426) 44.05925926%,
+            rgba(20,24,29,.29597303) 47.04814815%,rgba(20,24,29,.20262391) 49.88148148%,rgba(20,24,29,.12204446) 52.5%,
+            rgba(20,24,29,.05854227) 54.85185185%,rgba(20,24,29,.01642493) 56.87777778%,rgba(20,24,29,0) 58.51851852%);
+}
+
+/*Nav part*/
+.wd-container-nav {
+    height: 72px;
+    position: relative;
+}
+.wd-container-nav section {
+    width: 950px;
+    height: 72px;
+    margin: 0 auto;
+    position: relative;
+}
+.wd-effect-header{
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 95px;
+    opacity: .7;
+    background-color: transparent;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(180deg,#14181c 0,rgba(20,24,28,.94460641) 16.56%,rgba(20,24,28,.80174927) 30.85%,rgba(20,24,28,.60641399) 43.77%,rgba(20,24,28,.39358601) 56.23%,rgba(20,24,28,.19825073) 69.15%,rgba(20,24,28,.05539359) 83.44%,rgba(20,24,28,0));
+}
+
+/*menu part*/
+.wd-menu{
+    position: absolute;
+    right: 155px;
+    top: 22px;
+}
+.wd-menu-ul{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.wd-menu-li {
+    font-size: 11.5px;
+    float: left;
+    list-style: none;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .07692308em;
+    color: #d8e0e8;
+    font-weight: 800;
+    padding: 8px;
+    line-height: 0;
+}
+.wd-menu-li:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.wd-menu-avatar {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+}
+/*search part*/
+.wd-search{
+    width: 140px;
+    position: absolute;
+    right: 0;
+    top: 16px;
+    height: 30px;
+}
+.wd-search input {
+    position: relative;
+    width: 137px;
+    height: 30px;
+    background-color: hsl(0deg 0% 56% / 52%);
+    border-radius: 15px;
+    box-shadow: none;
+    font-size: 15px;
+    padding: 6px 30px 6px 10px;
+    border: none;
+    color: white;
+    outline: none;
+    appearance: none;
+}
+.wd-search input:hover{
+    background-color: gray;
+    /*background-color: rgba(253, 253, 253, 0.829);*/
+}
+.wd-search button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    color: white;
+    font-size: 10px;
+}
+
+.wd-search button:hover {
+    color: gray;
+}
+
+/*i.fas.fa-search {*/
+/*    position: absolute;*/
+/*    right: 15px;*/
+/*    bottom: 9px;*/
+/*    color: white;*/
+/*    font-size: 10px;*/
+/*}*/
+
+
+/* Login Message*/
+.wd-welcome-message {
+    margin: 40px 0;
+}
+
+.wd-welcome-message h2 {
+    color: #abc;
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.wd-welcome-message h2 span {
+    color: rgb(255,255, 255);
+    position: relative;
+    cursor: pointer;
+}
+
+.wd-welcome-message h2 span::after {
+    content: '';
+    background: rgb(123,138,152);
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transition: 0.2s;
+}
+
+.wd-welcome-message h2 span:hover::after {
+    background: white;
+}
+
+
+
+/* !login content */
+.wd-content-site {
+    background-image: none;
+    padding: 30px 0;
+}
+
+.wd-content {
+    padding-top: 300px;
+    position: relative;
+    width: 950px;
+    margin: 0 auto;
+}
+
+
+.wd-title{
+    text-align: center;
+    font-size: 1.30769231rem;
+    line-height: 1.52941176;
+    margin-top: -2.30769231rem;
+    margin-bottom: 4.61538462rem;
+    font-family: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+.wd-title h2 {
+    font-family: TiemposHeadlineWeb-Bold,Georgia,serif;
+    font-weight: 900;
+    color: white;
+    font-size: 37px;
+    letter-spacing: -2px;
+    line-height: 50px;
+}
+
+
+.wd-content .button {
+    text-align: center;
+    display: block;
+    width: 280px;
+    height: 30px;
+    margin: auto;
+    background-color: #00c030;
+    border-radius: 5px;
+    /*padding-top: 7px;*/
+    letter-spacing: 1px;
+}
+
+.button a{
+    /*padding: 10px;*/
+    color: white;
+    /*font-size: 20px;*/
+    font-size: 1.23076923rem;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.button:hover{
+    background-color: #00a028;
+}
+
+.wd-note {
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.wd-note p {
+    letter-spacing: 1px;
+    color: #789;
+    font-size: 17px;
+    display: inline-block;
+    margin-bottom: .70588235em;
+}
+
+.wd-note a {
+    color: #789;
+    margin-left: .25em;
+    width: 60px;
+    display: inline-flex;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.wd-note a i:hover{
+    color: rgb(156, 166, 175);
+}
+
+.fa-apple:before {
+    content: "\f179";
+    vertical-align: middle;
+}
+.fa-android:before {
+    content: "\f17b";
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+

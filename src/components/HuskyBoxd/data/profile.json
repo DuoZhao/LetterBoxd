@@ -1,0 +1,19 @@
+[
+  {
+    "firstName": "Zhengyan",
+    "lastName": "Mr.",
+    "handle": "Code Elite",
+    "profilePicture": "../pictures/peaky_blinder.jpg",
+    "bannerPicture": "../pictures/horse.jpg",
+    "bio": "Student, Data Scientist, Algorithm Engineer",
+    "website": "youtube.com/webdevtv",
+    "location": "Boston, MA",
+    "dateOfBirth": "3/1998",
+    "dateJoined": "12/2020",
+    "films": 1638,
+    "thisyear": 57,
+    "lists": 12,
+    "followingCount": 666,
+    "followersCount": 0
+  }
+]

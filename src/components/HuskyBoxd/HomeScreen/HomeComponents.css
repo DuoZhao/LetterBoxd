@@ -1,0 +1,45 @@
+
+.background_wrapper {
+    width: 1280px;
+    height: 830px;
+    margin-left: -650px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    /*right: 50%;*/
+    background-position: 50%;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+}
+
+.wd-linear-gradient {
+    background: linear-gradient(90deg, #14181c 0, hsla(0, 0%, 100%, 0) 30%),
+        /*linear-gradient(90deg,yellow blue, hsla(0,0%,100%,0) 30%),*/ linear-gradient(270deg, #14181c 0, hsla(0, 0%, 100%, 0) 30%),
+    linear-gradient(0deg, #14181c 20%, hsla(0, 0%, 100%, 0) 30%),
+    linear-gradient(180deg, #14181c 0, hsla(0, 0%, 100%, 0) 15%);
+}
+
+.wd-headline {
+    font-family: TiemposHeadlineWeb-Bold, Georgia, serif;
+    font-size: 2.46153846rem;
+    font-weight: 400;
+    margin: 0 0 10px;
+    color: white;
+}
+
+/*.background_wrapper::before {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    pointer-events: none;*/
+/*    width: 100%;*/
+/*    height: 90%;*/
+
+/*background:*/
+/*        linear-gradient(90deg,#14181c 0,hsla(0,0%,100%,0) 30%),*/
+/*        linear-gradient(270deg,#14181c 0,hsla(0,0%,100%,0) 30%),*/
+/*        linear-gradient(0deg,#14181c 20%,hsla(0,0%,100%,0) 30%),*/
+/*        linear-gradient(180deg,#14181c 0,hsla(0,0%,100%,0) 15%);*/
+/*}*/

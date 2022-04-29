@@ -1,0 +1,102 @@
+/* !login content */
+.wd-content-site {
+    background-image: none;
+    padding: 30px 0;
+}
+
+.wd-content {
+    padding-top: 300px;
+    position: relative;
+    width: 950px;
+    margin: 0 auto;
+}
+
+
+.wd-title{
+    text-align: center;
+    font-size: 1.30769231rem;
+    line-height: 1.52941176;
+    margin-top: -2.30769231rem;
+    margin-bottom: 4.61538462rem;
+    font-family: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+.wd-title h2 {
+    font-family: TiemposHeadlineWeb-Bold,Georgia,serif;
+    font-weight: 900;
+    color: white;
+    font-size: 37px;
+    letter-spacing: -2px;
+    line-height: 50px;
+}
+
+
+.wd-content .button {
+    text-align: center;
+    display: block;
+    width: 280px;
+    height: 30px;
+    margin: auto;
+    background-color: #00c030;
+    border-radius: 5px;
+    /*padding-top: 7px;*/
+    letter-spacing: 1px;
+}
+
+.button a{
+    /*padding: 10px;*/
+    color: white;
+    /*font-size: 20px;*/
+    font-size: 1.23076923rem;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.button:hover{
+    background-color: #00a028;
+}
+
+.wd-note {
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.wd-note p {
+    letter-spacing: 1px;
+    color: #789;
+    font-size: 17px;
+    display: inline-block;
+    margin-bottom: .70588235em;
+}
+
+.wd-note a {
+    color: #789;
+    margin-left: .25em;
+    width: 60px;
+    display: inline-flex;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+.wd-note a i:hover{
+    color: rgb(156, 166, 175);
+}
+
+.fa-apple:before {
+    content: "\f179";
+    vertical-align: middle;
+}
+.fa-android:before {
+    content: "\f17b";
+    vertical-align: middle;
+}

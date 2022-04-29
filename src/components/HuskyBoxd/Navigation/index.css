@@ -1,0 +1,114 @@
+
+.wd-site-header {
+    height: 72px;
+    position: relative;
+    z-index: 1100;
+    background: gray;
+}
+
+.wd-app-name {
+    font-size: 2.5rem;
+}
+
+.wd-log {
+    width: 273px;
+}
+
+.wd-icon {
+    color: #d8e0e8
+}
+
+.wd-input {
+    background: #202020;
+    color: white;
+    border-color: #202020;
+    outline: none;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+
+.input-field {
+    width: 90%;
+    padding: 5px;
+    margin-left: 0px;
+    text-align: justify;
+    border: 1px gray groove;
+    border-radius: 20px;
+    text-indent: 30px;
+}
+
+
+.background_wrapper {
+    width: 1280px;
+    height: 830px;
+    margin-left: -650px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    /*right: 50%;*/
+    background-position: 50%;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.background_wrapper::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 90%;
+
+    background: linear-gradient(90deg, #14181c 0, hsla(0, 0%, 100%, 0) 30%),
+    linear-gradient(270deg, #14181c 0, hsla(0, 0%, 100%, 0) 30%),
+    linear-gradient(0deg, #14181c 20%, hsla(0, 0%, 100%, 0) 30%),
+    linear-gradient(180deg, #14181c 0, hsla(0, 0%, 100%, 0) 15%);
+}
+
+.wd-content {
+    padding-top: 400px;
+    background-image: none;
+    position: relative;
+}
+
+.showcase_container {
+    width: 690px;
+    height: 252px;
+}
+
+.show_content {
+    text-align: center;
+    color: white;
+}
+
+.showcase_button, .showcase_subtitle, .showcase_title {
+    margin-bottom: 25px;
+}
+
+.wd-welcome-homepage {
+    font-size: 2.76923077rem;
+    line-height: 1.33333333;
+    margin-bottom: 0;
+}
+
+.wd-headline {
+    font-family: TiemposHeadlineWeb-Bold, Georgia, serif;
+    font-size: 2.46153846rem;
+    font-weight: 400;
+    margin: 0 0 10px;
+    color: white;
+}

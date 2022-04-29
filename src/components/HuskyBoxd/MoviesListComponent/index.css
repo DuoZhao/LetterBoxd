@@ -1,0 +1,51 @@
+
+.wd-films-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+
+.wd-card-list {
+    margin-top: 10px;
+    display: flex;
+}
+
+.wd-card {
+    width: 154px;
+    height: 229px;
+    margin: 0 5px;
+    border: 1px solid rgb(99, 116, 133);
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+}
+
+.wd-card::after {
+    content: '';
+    border-radius: 5px;
+    /*top: -2px;*/
+    /*left: -2px;*/
+    height: 100%;
+    width: 100%;
+    /*transition: 0.2s;*/
+}
+
+.wd-card:hover::after {
+    content: '';
+    border: 2px solid rgb(0, 224, 84);
+    border-radius: 5px;
+    /*top: -2px;*/
+    /*left: -2px;*/
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+}
+
+.wd-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
