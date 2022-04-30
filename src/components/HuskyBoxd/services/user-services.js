@@ -24,7 +24,9 @@ export const updateHistoryMovie = async (userID, movieID) => {
 }
 
 
-
-
+export const updateUser = async (userId, username, email) => {
+    const response = await axios.put(`${api}` + userId, {username, email});
+    return response.data;
+}
 
 
