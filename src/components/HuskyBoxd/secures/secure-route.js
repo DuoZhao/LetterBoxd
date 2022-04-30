@@ -24,7 +24,7 @@ const SecureRoute = ({children}) => {
         return children
     } else if (waiting) {
         return null
-    } else {
+    } else { return children
     }
 
 }

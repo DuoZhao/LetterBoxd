@@ -1,5 +1,6 @@
 import React from "react";
 import "../Styles/card.css";
+import Navigation from "../Navigation";
 
 const FilmItem = ({
                    prof = {

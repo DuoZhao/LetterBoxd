@@ -34,6 +34,11 @@ function App() {
                             <ProfileScreen/>
                         </SecureRoute>
                     }/>
+                    <Route path="profile/:userId" element={
+                        <SecureRoute>
+                            <ProfileScreen/>
+                        </SecureRoute>
+                    }/>
                     <Route path="login" element={<LoginScreen/>}/>
                     <Route path="detail" element={<MovieDetailScreen/>}/>
                     <Route path="detail/:movieId" element={<MovieDetailScreen/>}/>
@@ -49,7 +54,7 @@ function App() {
                     <Route path="privacy" element={<PrivacyScreen/>}/>
                     <Route path="search" element={<SearchScreen/>}/>
                     <Route path="search/:movieSearch" element={<SearchScreen/>}/>
-                    <Route path="profile/:userId" element={<ProfileScreen/>}/>
+                    {/*<Route path="profile/:userId" element={<ProfileScreen/>}/>*/}
                     <Route path="home" element={
                         <SecureRoute>
                             <HomeScreen/>
