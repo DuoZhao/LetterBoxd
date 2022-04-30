@@ -1,5 +1,10 @@
 import user from '../data/profile.json';
-import {FIND_USER_BY_ID, UPDATE_USER_FAVORITE_MOVIE, UPDATE_USER_HISTORY_MOVIE} from "../actions/user-actions";
+import {
+    FIND_USER_BY_ID,
+    UPDATE_USER,
+    UPDATE_USER_FAVORITE_MOVIE,
+    UPDATE_USER_HISTORY_MOVIE
+} from "../actions/user-actions";
 
 const UserReducer = (state = [], action) => {
     switch (action.type) {
