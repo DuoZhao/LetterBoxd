@@ -3,28 +3,11 @@ import {Link} from "react-router-dom";
 
 
 const EditProfileNavigationComponent = ({
-                                            prof = {
-                                                "firstName": "Jiedong",
-                                                "lastName": "Lang",
-                                                "handle": "Code Elite",
-                                                "profilePicture": "../../../../tuiter/martin.jpg",
-                                                "bannerPicture": "../../../../tuiter/interstellar.jpg",
-                                                "bio": "Student, Data Scientist, Algorithm Engineer",
-                                                "website": "youtube.com/webdevtv",
-                                                "location": "Boston, MA",
-                                                "dateOfBirth": "3/1998",
-                                                "dateJoined": "12/2020",
-                                                "films": 1638,
-                                                "thisyear": 57,
-                                                "lists": 12,
-                                                "followingCount": 666,
-                                                "followersCount": 0
-                                            }
                                         }) => {
 
     return (
+        <div className="container">
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
-            <h1 style={{"font-family": "TiemposHeadlineWeb-Bold,Georgia,serif"}}>Account Settings</h1>
 
             <br/>
 
@@ -55,6 +38,7 @@ const EditProfileNavigationComponent = ({
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

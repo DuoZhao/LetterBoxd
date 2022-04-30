@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./CommentsComponents.css"
 import "../Styles/card.css"
 import "../Styles/comment.css"
+import axios from "axios";
+import {useNavigate, useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {useProfile} from "../contexts/profile-context";
+import {findUserByID} from "../actions/user-actions";
 
 const CommentsComponents = (
     {
         comment = {
             "m_poster": "https://image.tmdb.org/t/p/w185//1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+            "_id":"12345",
             "m_name": "SpiderMan",
             "m_year": "2022",
             "u_avatar": "../pictures/images/avatar/1.jpg",
@@ -16,12 +22,33 @@ const CommentsComponents = (
         }
 
     }) => {
+
+    const navigate = useNavigate()
+
+
+    const {profile} = useProfile();
+    // const dispatch = useDispatch();
+
+    if (!profile){
+        navigate(`/huskyboxd/login`)
+    }
+
+    const userId=comment['id']
+    const dispatch = useDispatch();
+
+
+    const NavigateToProfile = async () => {
+        navigate(`/huskyboxd/profile` + userId)
+    }
+
+
+
     return (
         <>
             <div className="row mt-3 wd-divider">
                 <div className="col-1 me-2">
                     <div className="wd-card" style={{width: "74px", height: "109px"}}>
-                        <img src={comment.m_poster}
+                        <img onClick={NavigateToProfile}  src={comment.m_poster}
                              alt="comment poster"/>
                     </div>
                 </div>
