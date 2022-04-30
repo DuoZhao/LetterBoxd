@@ -51,7 +51,9 @@ function App() {
                     <Route path="search/:movieSearch" element={<SearchScreen/>}/>
                     <Route path="profile/:userId" element={<ProfileScreen/>}/>
                     <Route path="home" element={
-                        <HomeScreen/>
+                        <SecureRoute>
+                            <HomeScreen/>
+                        </SecureRoute>
                     }/>
                 </Route>
             </Routes>
