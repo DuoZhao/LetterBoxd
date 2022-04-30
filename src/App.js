@@ -29,11 +29,19 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/huskyboxd" element={<Movie/>}>
-                    <Route path="profile" element={<ProfileScreen/>}/>
+                    <Route path="profile" element={
+                        <SecureRoute>
+                            <ProfileScreen/>
+                        </SecureRoute>
+                    }/>
                     <Route path="login" element={<LoginScreen/>}/>
                     <Route path="detail" element={<MovieDetailScreen/>}/>
                     <Route path="detail/:movieId" element={<MovieDetailScreen/>}/>
-                    <Route path="editprofile" element={<EditProfileScreen/>}/>
+                    <Route path="editprofile" element={
+                        <SecureRoute>
+                            <EditProfileScreen/>
+                        </SecureRoute>
+                    }/>
                     <Route path="profile-films" element={<ProfileFilmsList/>}/>
                     <Route path="stores-streaming" element={<StoresStreaming/>}/>
                     <Route path="import-export" element={<ImportExportComponent/>}/>
