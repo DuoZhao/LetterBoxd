@@ -4,6 +4,7 @@ import {findMovieByID} from "../actions/movie-detail-action.js";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import Comments from "../CommentComponent";
+// import CreateComment from "../CommentComponent/CreateCommentComponent";
 
 const MovieDetailScreen = () => {
     const {movieId} = useParams();
@@ -14,6 +15,10 @@ const MovieDetailScreen = () => {
     return(
         <>
             <MovieDetailComponent movie={movie}/>
+            <div className="container row">
+                {/*<CreateComment/>*/}
+                <Comments/>
+            </div>
         </>
     );
 };

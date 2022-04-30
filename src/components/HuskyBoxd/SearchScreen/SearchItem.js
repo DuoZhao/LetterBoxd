@@ -11,12 +11,12 @@ const SearchItem = ({movie}) => {
 
     const dispatch = useDispatch()
 
-    const Movie = findMovieByID(dispatch, movie.imdbID, false)
+    //const Movie = findMovieByID(dispatch, movie.imdbID, false)
 
 
-    console.log(movie)
-    // console.log(Movie)
-    const movieInfo = Movie[0]
+    // console.log(movie)
+    // // console.log(Movie)
+    // const movieInfo = Movie[0]
 
     return (
         <div className="list-group-item">
@@ -31,9 +31,9 @@ const SearchItem = ({movie}) => {
             }}>
                 <div className="row">
                     <div className="col-2">
-                        <button onClick={toDetails}>
+                        <div onClick={toDetails}>
                             <img src={movie.Poster} height="150px" width="100%" alt={''}/>
-                        </button>
+                        </div>
                     </div>
                     <div className="col-10">
                         <text style={{

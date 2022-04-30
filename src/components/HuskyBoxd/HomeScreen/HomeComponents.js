@@ -7,9 +7,10 @@ const HomeComponents = (
     {
         login = false
     }
+
 ) => {
     const {profile} = useProfile();
-
+    console.log(profile.username);
     return (
         <>
             {
@@ -43,7 +44,7 @@ const HomeComponents = (
             {
                 login && <div className="wd-welcome-message">
                     <h2>Welcome back,
-                        <text></text>
+                        <text> </text>
                         <Link to="/huskyboxd/profile" className="text-decoration-none">
                             <span>{profile && profile.username}</span>
                         </Link>.

@@ -1,7 +1,13 @@
 import "./index.css";
+import {useDispatch} from "react-redux";
+import {useProfile} from "../contexts/profile-context";
+import {updateFavoriteMovie} from "../actions/user-actions";
+import {updateHistoryMovie} from "../actions/user-actions";
 
 const MovieDetailComponent = ({movie}) => {
     const backgroundImage = `url(${movie.image})`;
+    const dispatch = useDispatch();
+    const {profile} = useProfile();
     return (
         <>
             <div className="wd-detail">
@@ -21,14 +27,18 @@ const MovieDetailComponent = ({movie}) => {
                                 <h4 className="ms-3">{movie.Year}</h4>
                                 <text className="ms-3">Directed by {movie.Director}</text>
                                 <p>{movie.Plot}</p>
+
                                 <div className="d-flex justify-content-start">
-                                    <div className="flex-column">
-                                        <button className="far fa-eye" style={{color: "rgb(0, 224, 84)"}}/>
+                                    <div className="flex-column ms-1"
+                                         onClick={() =>updateHistoryMovie(dispatch, profile._id, movie._id)}>
+                                        <div className="far fa-eye" style={{color: "rgb(0, 224, 84)"}}/>
                                     </div>
-                                    <div className="flex-column ms-2">
-                                        <button className="far fa-heart" style={{color: "rgb(255, 128, 0)"}}/>
+                                    <div className="flex-column ms-2"
+                                         onClick={() =>updateFavoriteMovie(dispatch, profile._id, movie._id)}>
+                                        <div className="far fa-heart" style={{color: "rgb(255, 128, 0)"}}/>
                                     </div>
                                 </div>
+
                             </section>
                         </div>
                     </div>

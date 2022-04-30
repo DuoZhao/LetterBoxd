@@ -8,6 +8,7 @@ import {Provider} from "react-redux";
 import {createStore, combineReducers} from "redux";
 
 const reducers = combineReducers({SearchReducer, profileReducer, StatReducer, FilmsReducer, movie: movieReducer})
+// movie: movieReducer
 const store = createStore(reducers);
 
 const Movie = () => {
