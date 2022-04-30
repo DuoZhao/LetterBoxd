@@ -25,7 +25,6 @@ const SecureRoute = ({children}) => {
     } else if (waiting) {
         return null
     } else {
-        return <Navigate to="/huskyboxd/login"/>
     }
 
 }
