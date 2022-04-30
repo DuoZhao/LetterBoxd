@@ -11,9 +11,8 @@ const HomeScreen = ({
                     }) => {
 
     const {profile} = useProfile();
-    login = (profile !== null);
-    console.log(profile === null);
-    console.log(profile.username);
+    login = (profile !== undefined);
+    //console.log(profile === null);
     return (
         <>
             <div style={{backgroundColor: "rgba(20,24,28,255)"}}>

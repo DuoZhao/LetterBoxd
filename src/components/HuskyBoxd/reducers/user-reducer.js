@@ -1,5 +1,5 @@
 import user from '../data/profile.json';
-import {FIND_USER_BY_ID, UPDATE_USER} from "../actions/user-actions";
+import {FIND_USER_BY_ID, UPDATE_USER_FAVORITE_MOVIE, UPDATE_USER_HISTORY_MOVIE} from "../actions/user-actions";
 
 const UserReducer = (state = [], action) => {
     switch (action.type) {
@@ -9,6 +9,10 @@ const UserReducer = (state = [], action) => {
             return state.map(
                 user => user._id === action.user._id ?
                     action.user : user);
+        case UPDATE_USER_FAVORITE_MOVIE:
+            return state.map(user => user._id === action.user._id ? action.user : user);
+        case UPDATE_USER_HISTORY_MOVIE:
+            return state.map(user => user._id === action.user._id ? action.user : user);
         default:
             return user
     }
