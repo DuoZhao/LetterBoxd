@@ -1,18 +1,10 @@
-import React from "react";
 import {useNavigate} from "react-router-dom";
-import {findMovieByID} from "../actions/movie-detail-action";
-import {useDispatch} from "react-redux";
 
 const SearchItem = ({movie}) => {
     const navigate = useNavigate()
     const toDetails = () => {
         navigate("/huskyboxd/detail/" + movie.imdbID)
     }
-
-    const dispatch = useDispatch()
-
-    const Movie = findMovieByID(dispatch, movie.imdbID, false)
-
     return (
         <div className="list-group-item">
 

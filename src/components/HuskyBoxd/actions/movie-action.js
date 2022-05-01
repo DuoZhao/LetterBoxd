@@ -1,11 +1,11 @@
 import * as service from '../services/movie-services'
 
-
 export const CREATE_MOVIE = 'CREATE_MOVIE';
 export const FIND_ALL_MOVIES = 'FIND_ALL_MOVIES';
 export const FIND_MOVIE_BY_IMDBID = 'FIND_MOVIE_BY_IMDBID';
 export const GET_RANDOM_MOVIES = 'GET_RANDOM_MOVIES';
 export const UPDATE_COMMENT = 'UPDATE_COMMENT';
+export const FIND_MOVIE_LIST = 'FIND_MOVIE_LIST';
 
 
 export const createMovie = async (dispatch, movie) => {
@@ -34,6 +34,7 @@ export const findMovieByimdbID = async (dispatch, movie) => {
 }
 
 export const getRandomMovies = async (dispatch) => {
+    console.log("called getRandom");
     const movies = await service.getRandomMovies();
     dispatch({
         type: GET_RANDOM_MOVIES,
@@ -46,5 +47,13 @@ export const updateMovieComment = async (dispatch, imdbID, comment) => {
     dispatch({
         type: UPDATE_COMMENT,
         comment: comment
+    });
+}
+
+export const findMovieIDList = async (dispatch, movieList) => {
+    const movies = service.findMovieIDList(movieList);
+    dispatch({
+        type: FIND_MOVIE_LIST,
+        movies: movies
     });
 }

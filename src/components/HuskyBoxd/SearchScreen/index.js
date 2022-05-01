@@ -3,6 +3,8 @@ import SearchItem from './SearchItem'
 import Navigation from "../Navigation";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import {findMovieIDList} from "../actions/movie-action";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const SearchScreen = () => {
@@ -12,6 +14,9 @@ const SearchScreen = () => {
     const navigate = useNavigate()
     const [movies, setMovies] = useState([])
     const searchUrl = 'https://www.omdbapi.com/?apikey=852159f0'
+    // const dispatch = useDispatch();
+    // const movieList = useSelector(state => state.movieList);
+    // let movieIdList = [];
 
     const searchByTitle = async () => {
         const searchString = titleSearchRef.current.value || movieSearch
@@ -22,12 +27,20 @@ const SearchScreen = () => {
         const response = await axios.get(`${searchUrl}&s=${searchString}`)
         setMovies(response.data.Search)
         titleSearchRef.current.value = searchString
-
+        // for (let i = 0; i < movies.length; i++) {
+        //     movieIdList.push(movies[i].imdbID);
+        // }
+        // console.log(movieIdList);
     }
     useEffect(() => {
         searchByTitle()
     }, [])
 
+    // useEffect(() => {
+    //     findMovieIDList(dispatch, movieIdList);
+    // }, [])
+    // console.log("movieList");
+    // console.log(movieList);
     const toShow = movieSearch === "undefined";
     return (
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>

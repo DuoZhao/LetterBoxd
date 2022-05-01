@@ -6,8 +6,9 @@ import StatReducer from "./reducers/stat-reducer";
 import FilmsReducer from "./reducers/films-reducer";
 import {Provider} from "react-redux";
 import {createStore, combineReducers} from "redux";
+import movieListReducer from "./reducers/movie-list-reducer";
 
-const reducers = combineReducers({SearchReducer, profileReducer, StatReducer, FilmsReducer, movie: movieReducer})
+const reducers = combineReducers({SearchReducer, profileReducer, StatReducer, FilmsReducer, movie: movieReducer, movieList: movieListReducer})
 // movie: movieReducer
 const store = createStore(reducers);
 

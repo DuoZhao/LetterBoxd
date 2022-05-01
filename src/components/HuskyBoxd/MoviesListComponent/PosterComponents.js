@@ -1,21 +1,16 @@
 import React from "react";
 import "../Styles/card.css";
+import {useNavigate} from "react-router-dom";
 
-const PosterComponents = (
-    {
-        movie = {
-            "_id": "123",
-            "Poster": "../pictures/images/poster/batman.jpg",
-        }
-    }) => {
-
-    // const goToMovieDetails = async () => {
-    //     navigate(`/huskyboxd/search/${id}`)
-    // }
+const PosterComponents = ({movie}) => {
+    const navigate = useNavigate();
+    const goToMovieDetails = (movieID) => {
+        navigate("/huskyboxd/detail/" +movieID)
+    }
     return (
         <div className="list-group-item p-0 m-0" style={{width: "154px", height: "229px"}}>
             <div className="wd-film me-1">
-                <a href="/"><img src={movie.Poster} className="wd-img" alt="movie name"/></a>
+                <a href="/"><img src={movie.Poster} className="wd-img" alt="movie name" onClick={() => goToMovieDetails(movie.imdbID)}/></a>
                 <div className="wd-cover-img">
                     <i className="fas fa-eye"/>
                     <text>123, 456</text>
