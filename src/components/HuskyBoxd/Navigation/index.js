@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "./index.css"
 import "../Styles/navigation.css"
 
@@ -7,7 +7,10 @@ const Navigation = (
     {
         login = false
     }) => {
-
+    const navigate = useNavigate()
+    const test = () =>  {
+        navigate("/huskyboxd/login");
+    }
     return (
         <>
             {/*!login homepage 1 */}
@@ -40,9 +43,7 @@ const Navigation = (
                             <nav className="wd-menu">
                                 {
                                     !login && <ul className="wd-menu-ul">
-                                        <Link to="/huskyboxd/login">
-                                            <li className="wd-menu-li">SIGN IN</li>
-                                        </Link>
+                                            <li className="wd-menu-li" onClick={() => test()}>SIGN IN</li>
                                         <Link to="/huskyboxd/login">
                                             <li className="wd-menu-li">CREATE ACCOUNT</li>
                                         </Link>
@@ -54,7 +55,7 @@ const Navigation = (
                                 {
                                     login && <ul className="wd-menu-ul">
                                         <Link to="/huskyboxd/home">
-                                            <li className="wd-menu-li p-0 me-2">
+                                            <li className="wd-menu-li p-0 me-2" >
                                                 <i className="fa fa-home me-1"/>
                                                 Home
                                             </li>

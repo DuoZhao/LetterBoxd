@@ -1,6 +1,12 @@
 import movie from '../data/movie.json';
 import {FIND_MOVIE_BY_ID, FIND_MOVIE_IMG_BY_ID} from "../actions/movie-detail-action";
-import {FIND_ALL_MOVIES, FIND_MOVIE_BY_IMDBID, CREATE_MOVIE ,GET_RANDOM_MOVIES} from "../actions/movie-action";
+import {
+    FIND_ALL_MOVIES,
+    FIND_MOVIE_BY_IMDBID,
+    CREATE_MOVIE,
+    GET_RANDOM_MOVIES,
+    UPDATE_COMMENT
+} from "../actions/movie-action";
 
 const movieReducer = (state = [], action) => {
     switch (action.type) {

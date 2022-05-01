@@ -1,8 +1,6 @@
 import * as service from '../services/detail-services';
 import * as mService from '../services/movie-services';
 
-import {createMovieToMongo, findMovieByIDFromMongo} from "../services/detail-services";
-
 export const FIND_MOVIE_BY_ID = 'FIND_MOVIE_BY_ID';
 export const FIND_MOVIE_IMG_BY_ID = 'FIND_MOVIE_IMG_BY_ID';
 

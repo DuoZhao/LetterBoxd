@@ -13,34 +13,13 @@ export const findUserByID = async (dispatch, userId) => {
     });
 }
 
-
-
-//My movie
 export const updateFavoriteMovie = async (dispatch, userId, movieId) => {
     const userInfo = await service.updateFavoriteMovie(userId, movieId);
-    console.log(userInfo);
-    dispatch(
-        {
-            type: UPDATE_USER_FAVORITE_MOVIE,
-            userInfo
-        }
-    )
 }
 
 export const updateHistoryMovie = async (dispatch, userId, movieId) => {
-    const userInfo = await service.updateFavoriteMovie(userId, movieId);
-    dispatch(
-        {
-            type: UPDATE_USER_HISTORY_MOVIE,
-            userInfo
-        }
-    )
+    const userInfo = await service.updateHistoryMovie(userId, movieId);
 }
-
-
-
-
-
 
 export const updateUser = async (dispatch, userId, username, email, id) => {
     const status = await service.updateUser(userId, username, email, id);

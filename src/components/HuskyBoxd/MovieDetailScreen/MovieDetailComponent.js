@@ -30,11 +30,11 @@ const MovieDetailComponent = ({movie}) => {
 
                                 <div className="d-flex justify-content-start">
                                     <div className="flex-column ms-1"
-                                         onClick={() =>updateHistoryMovie(dispatch, profile._id, movie._id)}>
+                                         onClick={() =>updateHistoryMovie(dispatch, profile._id, movie.imdbID)}>
                                         <div className="far fa-eye" style={{color: "rgb(0, 224, 84)"}}/>
                                     </div>
                                     <div className="flex-column ms-2"
-                                         onClick={() =>updateFavoriteMovie(dispatch, profile._id, movie._id)}>
+                                         onClick={() =>updateFavoriteMovie(dispatch, profile._id, movie.imdbID)}>
                                         <div className="far fa-heart" style={{color: "rgb(255, 128, 0)"}}/>
                                     </div>
                                 </div>

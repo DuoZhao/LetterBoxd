@@ -9,18 +9,16 @@ const ProfileScreen = () => {
     const prof = useSelector((state) => state.profileReducer);
     const {userId} = useParams();
     const dispatch = useDispatch();
-    useEffect(() => findUserByID(dispatch, userId, true), []);
+    useEffect(() => {
+        findUserByID(dispatch, userId, true)
+    }, []);
 
     return (
         <div>
-
             <div>
                 <ProfileList prof={prof}/>
             </div>
-
-
         </div>
-
     );
 };
 export default ProfileScreen;
