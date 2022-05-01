@@ -6,11 +6,8 @@ export const UPDATE_USER_HISTORY_MOVIE = 'UPDATE_USER_HISTORY_MOVIE';
 export const UPDATE_USER = 'UPDATE_USER';
 
 export const findUserByID = async (dispatch, userId) => {
-    const userInfo = await service.findUserByID(userId);
-    dispatch({
-        type: FIND_USER_BY_ID,
-        userInfo
-    });
+    const userInfo =  await service.findUserByID(userId);
+    return userInfo;
 }
 
 export const updateFavoriteMovie = async (dispatch, userId, movieId) => {

@@ -13,7 +13,9 @@ export const findMovieByID = async (dispatch, movieId, needImage) => {
     if (needImage) {
         const movieImg = await service.findMovieImgByID(movieId);
         const imgListObject = JSON.parse(JSON.stringify(movieImg.items));
-        movieInfo["image"] = imgListObject[0].image;
+        if (imgListObject && imgListObject[0] && imgListObject[0].image) {
+            movieInfo["image"] = imgListObject[0].image;
+        }
     }
 
     dispatch({

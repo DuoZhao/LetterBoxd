@@ -41,7 +41,7 @@ const CommentsComponents = ({comment}) => {
                     <div className="row mt-3">
                         <div className="col-6">
                             <img src={comment.u_avatar} className="wd-avatar" alt="..."/>
-                            <b className="ms-1 wd-username position-absolute" onClick={() => NavigateToProfile()}>{comment.username}</b>
+                            <b className="ms-1 wd-username position-absolute" onClick={() => NavigateToProfile(comment.userID)}>{comment.username}</b>
                             <br/>
                         </div>
 
