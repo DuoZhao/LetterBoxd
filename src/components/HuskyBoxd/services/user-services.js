@@ -19,9 +19,10 @@ export const updateHistoryMovie = async (userID, movieID) => {
 }
 
 
-export const updateUser = async (userId, username, email, id) => {
-    const response = await axios.put(`${USER_API}` + userId, {username, email, id});
-    return response.data;
+export const updateUser = async (userId, username, email, realID) => {
+    const response = await axios.put(`${USER_API}` + userId, {username, email, realID});
+//     const response = await axios.put(`${api}` + userId, {username, email, realID});
+     return response.data;
 }
 
 export const updateUserReal = async (userId, realUser) => {

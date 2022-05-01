@@ -38,7 +38,7 @@ const ProfListItem = () => {
             <Navigation login={true}/>
 
             <div style={{"height": "400px"}}>
-                <img src={finalProfile && finalProfile.bannerPicture} height="550px" width="100%"/>
+                <img src={profile.bannerPicture} height="550px" width="100%"/>
             </div>
 
             <div style={{"padding-top": "50px", "padding-left": "100px", "position": "relative"}}>
