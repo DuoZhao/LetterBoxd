@@ -37,8 +37,21 @@ export const updateHistoryMovie = async (dispatch, userId, movieId) => {
     )
 }
 
-export const updateUser = async (dispatch, userId, username, email) => {
-    const status = await service.updateUser(userId, username, email);
+
+
+
+
+
+export const updateUser = async (dispatch, userId, username, email, id) => {
+    const status = await service.updateUser(userId, username, email, id);
+    dispatch({
+        type: UPDATE_USER,
+        userId
+    });
+}
+
+export const updateUserReal = async (dispatch, userId,realUser) => {
+    const status = await service.updateUserReal(userId,realUser);
     dispatch({
         type: UPDATE_USER,
         userId

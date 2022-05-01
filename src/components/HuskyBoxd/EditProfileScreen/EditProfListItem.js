@@ -2,8 +2,9 @@ import React, {useRef} from "react";
 import EditProfileNavigationComponent from "./EditProfileNavigationComponent";
 import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {updateUser} from "../actions/user-actions";
+import {updateUser, updateUserReal} from "../actions/user-actions";
 import {useProfile} from "../contexts/profile-context";
+import Navigation from "../Navigation";
 
 
 const EditProfListItem = () => {
@@ -12,54 +13,30 @@ const EditProfListItem = () => {
     const dispatch = useDispatch();
     const saveClickHandler = () => {
         if (profile && profile._id) {
-            updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value);
-        }
-    }
+            if (profile.realUser === false) {
+                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value)
+                if (idEdited.current.value){
+                    updateUserReal(dispatch, profile._id, true)
+                }
 
-    let [username, setName] = useState({name: prof.username}) ;
-    const nameHandler = (event) => {
-        const username = event.target.value;
-        const newName = {username : username};
-        setName(newName);
-        console.log(username)
-    }
-
-    let [bio, setBio] = useState({bio: prof.bio}) ;
-    const bioHandler = (event) => {
-        const bio = event.target.value;
-        const newBio = { bio : bio};
-        setBio(newBio);
-    }
-
-    let [location, setLocal] = useState({local: prof.location}) ;
-    const locationHandler = (event) => {
-        const location = event.target.value;
-        const newLocation = {location : location}
-        setLocal(newLocation);
-    }
-
-    let [website, setWeb] = useState({website : prof.website}) ;
-    const websiteHandler = (event) => {
-        const website = event.target.value;
-        const newWeb = {website : website}
-        setWeb(newWeb);
-    }
-
-    let [email, setEmail] = useState({email : prof.email}) ;
-    const emailHandler = (event) => {
-        const email = event.target.value;
-        const newEmail = {email : email}
-        setWeb(newEmail);
-    }
+            }
+            if (profile.realUser === true) {
+                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value);
+                if (!idEdited.current.value){
+                    updateUserReal(dispatch, profile._id, false)
+                }
+            }
+        } }
+        // dispatch({type: 'save', bio, website, username, location, email})
 
     const usernameEdited = useRef();
     const emailEdited = useRef();
-    const bioEdited = useRef();
-    const websiteEdited = useRef();
+    const idEdited = useRef();
 
 
     return (
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
+            <Navigation login={true}/>
             <EditProfileNavigationComponent/>
             <br/>
             <h3 style={{"padding-left": "50px", "font-family": "TiemposHeadlineWeb-Bold,Georgia,serif"}}>Profile
@@ -97,15 +74,13 @@ const EditProfListItem = () => {
                                     <input type="text" style={{"background-color": "#445566"}}/>
                                 </div>
                                 <div className="col-6">
-                                    Website: <textarea  placeholder="Your Email" ref={websiteEdited}
-                                                        style={{"width": "90%", "background-color": "#445566"}}>
-                                                     {prof.website}
-                                            </textarea>
+                                    Website: <br/>
+                                    <input type="text" style={{"background-color": "#445566"}}/>
                                 </div>
                             </div>
                             <br/>
-                            Bio: <br/>
-                            <textarea  placeholder="Your Email" ref={bioEdited}
+                            ID: <br/>
+                            <textarea  ref={idEdited}
                                        style={{"width": "90%", "background-color": "#445566"}}>
                             </textarea>
                             <br/> <br/>
@@ -120,10 +95,13 @@ const EditProfListItem = () => {
                                         CHANGES
                                     </button>
                                 </div>
+                                <br/><br/><br/><br/><br/>
                             </div>
                             <br/> <br/>
                         </div>
                     </div>
+
+
 
                     <div className="col-6">
                         <h3 style={{"font-family": "TiemposHeadlineWeb-Bold,Georgia,serif"}}>Favourite Films</h3>

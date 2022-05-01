@@ -4,8 +4,10 @@ import EditProfileList from './EditProfileList';
 
 const EditProfileScreen = () => {
     return (
-        <div>
-            <EditProfileList/>
+        <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
+            <div className="container">
+                <EditProfileList/>
+            </div>
         </div>
     );
 };

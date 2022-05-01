@@ -37,13 +37,13 @@ const HomeScreen = ({
                 </div>
 
                 {/*Popular movie list*/}
-                <div className="row mt-1">
-                    <div className="col-1"/>
-                    <div className="col-10">
-                        <MoviesList/>
-                    </div>
-                    <div className="col-1"/>
-                </div>
+                {/*<div className="row mt-1">*/}
+                {/*    <div className="col-1"/>*/}
+                {/*    <div className="col-10">*/}
+                {/*        <MoviesList/>*/}
+                {/*    </div>*/}
+                {/*    <div className="col-1"/>*/}
+                {/*</div>*/}
 
                 {/*Comments*/}
                 <div className="row mt-auto">
