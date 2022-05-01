@@ -11,12 +11,7 @@ const SearchItem = ({movie}) => {
 
     const dispatch = useDispatch()
 
-    //const Movie = findMovieByID(dispatch, movie.imdbID, false)
-
-
-    // console.log(movie)
-    // // console.log(Movie)
-    // const movieInfo = Movie[0]
+    const Movie = findMovieByID(dispatch, movie.imdbID, false)
 
     return (
         <div className="list-group-item">
