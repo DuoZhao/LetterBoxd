@@ -5,9 +5,7 @@ const PosterComponents = (
     {
         movie = {
             "_id": "123",
-            "poster": "../pictures/images/poster/batman.jpg",
-            "watch": 123456,
-            "like": 123456
+            "Poster": "../pictures/images/poster/batman.jpg",
         }
     }) => {
 
@@ -17,12 +15,12 @@ const PosterComponents = (
     return (
         <div className="list-group-item p-0 m-0" style={{width: "154px", height: "229px"}}>
             <div className="wd-film me-1">
-                <a href="/"><img src={movie.poster} className="wd-img" alt="movie name"/></a>
+                <a href="/"><img src={movie.Poster} className="wd-img" alt="movie name"/></a>
                 <div className="wd-cover-img">
                     <i className="fas fa-eye"/>
-                    <text>{movie.watch}</text>
+                    <text>123, 456</text>
                     <i className="fas fa-heart"/>
-                    <text>{movie.like} </text>
+                    <text>123, 456</text>
                 </div>
             </div>
 
