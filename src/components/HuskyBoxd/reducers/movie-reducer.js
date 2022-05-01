@@ -1,6 +1,6 @@
 import movie from '../data/movie.json';
 import {FIND_MOVIE_BY_ID, FIND_MOVIE_IMG_BY_ID} from "../actions/movie-detail-action";
-import {FIND_ALL_MOVIES, FIND_MOVIE_BY_IMDBID, CREATE_MOVIE} from "../actions/movie-action";
+import {FIND_ALL_MOVIES, FIND_MOVIE_BY_IMDBID, CREATE_MOVIE, UPDATE_COMMENT} from "../actions/movie-action";
 
 const movieReducer = (state = [], action) => {
     switch (action.type) {
@@ -14,11 +14,12 @@ const movieReducer = (state = [], action) => {
                 action.newMovie
             ];
         case FIND_MOVIE_BY_IMDBID:
-            console.log("test FIND_MOVIE_BY_IMDBID")
-            console.log(action.movies);
             return state.filter(movie => movie.imdbID === action.movies.imdbID)
         case FIND_ALL_MOVIES:
             return action.movies;
+        case UPDATE_COMMENT:
+            state["history_comment"].push(action.comment)
+            return state;
         default:
             return movie;
     }

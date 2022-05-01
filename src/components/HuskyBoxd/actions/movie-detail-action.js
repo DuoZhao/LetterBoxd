@@ -7,14 +7,11 @@ export const FIND_MOVIE_BY_ID = 'FIND_MOVIE_BY_ID';
 export const FIND_MOVIE_IMG_BY_ID = 'FIND_MOVIE_IMG_BY_ID';
 
 export const findMovieByID = async (dispatch, movieId, needImage) => {
-    // console.log("movieId");
-    // console.log(movieId);
     let movieInfo = await mService.findMovieByimdbID(movieId);
     if (!movieInfo) {
         movieInfo = await service.findMovieByID(movieId);
         await mService.createMovie(movieInfo);
     }
-    console.log(movieInfo);
     if (needImage) {
         const movieImg = await service.findMovieImgByID(movieId);
         const imgListObject = JSON.parse(JSON.stringify(movieImg.items));

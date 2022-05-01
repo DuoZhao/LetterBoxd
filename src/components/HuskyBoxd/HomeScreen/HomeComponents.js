@@ -10,7 +10,6 @@ const HomeComponents = (
 
 ) => {
     const {profile} = useProfile();
-    console.log(profile.username);
     return (
         <>
             {

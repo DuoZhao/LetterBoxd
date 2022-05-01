@@ -4,6 +4,7 @@ import * as service from '../services/movie-services'
 export const CREATE_MOVIE = 'CREATE_MOVIE';
 export const FIND_ALL_MOVIES = 'FIND_ALL_MOVIES';
 export const FIND_MOVIE_BY_IMDBID = 'FIND_MOVIE_BY_IMDBID';
+export const UPDATE_COMMENT = 'UPDATE_COMMENT';
 
 
 export const createMovie = async (dispatch, movie) => {
@@ -28,5 +29,13 @@ export const findMovieByimdbID = async (dispatch, movie) => {
     dispatch({
         type: FIND_MOVIE_BY_IMDBID,
         movies
+    });
+}
+
+export const updateMovieComment = async (dispatch, imdbID, comment) => {
+    const movie = await service.updateMovieComment(imdbID, comment);
+    dispatch({
+        type: UPDATE_COMMENT,
+        comment: comment
     });
 }

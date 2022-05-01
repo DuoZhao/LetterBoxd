@@ -11,11 +11,9 @@ const EditProfListItem = () => {
     const {profile} = useProfile();
     const dispatch = useDispatch();
     const saveClickHandler = () => {
-        const data = {}
         if (profile && profile._id) {
             updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value);
         }
-        // dispatch({type: 'save', bio, website, username, location, email})
     }
 
     let [username, setName] = useState({name: prof.username}) ;

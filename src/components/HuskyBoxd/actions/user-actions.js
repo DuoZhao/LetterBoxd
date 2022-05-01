@@ -37,11 +37,6 @@ export const updateHistoryMovie = async (dispatch, userId, movieId) => {
     )
 }
 
-
-
-
-
-
 export const updateUser = async (dispatch, userId, username, email) => {
     const status = await service.updateUser(userId, username, email);
     dispatch({

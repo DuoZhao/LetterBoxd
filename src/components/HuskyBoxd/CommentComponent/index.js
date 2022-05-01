@@ -1,9 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import CommentsComponents from "./CommentsComponents";
-import comment from "../data/comment.json"
 
-const Comments = () => {
-
+const Comments = ({movie}) => {
     return (
         <div className="ms-4">
             <div style={{borderBottom: "1px solid #456", display: "center"}}>
@@ -11,9 +9,9 @@ const Comments = () => {
             </div>
             <>
                 {
-                    comment.map(c => {
-                        return (<CommentsComponents comment={c}/>)
-                    })
+                    movie.history_comment && movie.history_comment.map(
+                        comment => <CommentsComponents comment={comment}/>
+                    )
                 }
             </>
         </div>
