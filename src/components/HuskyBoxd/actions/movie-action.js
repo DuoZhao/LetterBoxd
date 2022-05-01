@@ -5,6 +5,8 @@ export const CREATE_MOVIE = 'CREATE_MOVIE';
 export const FIND_ALL_MOVIES = 'FIND_ALL_MOVIES';
 export const FIND_MOVIE_BY_IMDBID = 'FIND_MOVIE_BY_IMDBID';
 export const GET_RANDOM_MOVIES = 'GET_RANDOM_MOVIES';
+export const UPDATE_COMMENT = 'UPDATE_COMMENT';
+
 
 export const createMovie = async (dispatch, movie) => {
     const newMovie = await service.createMovie(movie);
@@ -36,5 +38,13 @@ export const getRandomMovies = async (dispatch) => {
     dispatch({
         type: GET_RANDOM_MOVIES,
         movies
+    });
+}
+
+export const updateMovieComment = async (dispatch, imdbID, comment) => {
+    const movie = await service.updateMovieComment(imdbID, comment);
+    dispatch({
+        type: UPDATE_COMMENT,
+        comment: comment
     });
 }

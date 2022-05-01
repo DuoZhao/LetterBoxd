@@ -41,7 +41,11 @@ function App() {
                     }/>
                     <Route path="login" element={<LoginScreen/>}/>
                     <Route path="detail" element={<MovieDetailScreen/>}/>
-                    <Route path="detail/:movieId" element={<MovieDetailScreen/>}/>
+                    <Route path="detail/:movieId" element={
+                        <SecureRoute>
+                            <MovieDetailScreen/>
+                        </SecureRoute>
+                    }/>
                     <Route path="editprofile" element={
                         <SecureRoute>
                             <EditProfileScreen/>

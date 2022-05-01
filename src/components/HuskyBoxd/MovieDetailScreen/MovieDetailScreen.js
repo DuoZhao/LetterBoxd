@@ -12,15 +12,14 @@ const MovieDetailScreen = () => {
     const movie = useSelector(state => state.movie);
     const dispatch = useDispatch();
     useEffect(() => findMovieByID(dispatch, movieId, true), []);
-
     return(
         <>
             <MovieDetailComponent movie={movie}/>
             <div className="container row justify-content-center">
-                <CreateComment/>
+                <CreateComment movie={movie}/>
             </div>
             <div className="container row">
-                <Comments/>
+                <Comments movie={movie}/>
             </div>
         </>
     );

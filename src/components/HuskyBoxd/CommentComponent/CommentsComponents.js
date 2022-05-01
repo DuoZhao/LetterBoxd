@@ -63,11 +63,11 @@ const CommentsComponents = (
                     <div className="row mt-3">
                         <div className="col-6">
                             <img src={comment.u_avatar} className="wd-avatar" alt="..."/>
-                            <b className="ms-1 wd-username position-absolute">{comment.u_name}</b>
+                            <b className="ms-1 wd-username position-absolute">{comment.username}</b>
                             <br/>
                         </div>
 
-                        <span className="wd-comment mt-2">{comment.u_comments}</span>
+                        <span className="wd-comment mt-2">{comment.comment}</span>
                         <div>
                             <i className="far fa-heart wd-text-color">
                                 <text className="wd-number"> {comment.likes} likes</text>

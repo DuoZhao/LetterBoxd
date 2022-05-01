@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const MOVIE_API_URL = "http://localhost:4000/api/movies";
+const MOVIE_UPDATE_API_URL = "http://localhost:4000/api/movies/update";
 const MOVIE_RANDOM_API_URL = "http://localhost:4000/api/movies/random/7";
 
 export const createMovie = async (movie) => {
@@ -19,6 +20,11 @@ export const findMovieByimdbID = async (imdbID) => {
     if (!response) {
         return null;
     }
+    return response.data;
+}
+
+export const updateMovieComment = async (imdbID, comment) => {
+    const response = await axios.put(`${MOVIE_UPDATE_API_URL}/${imdbID}`, comment)
     return response.data;
 }
 

@@ -14,13 +14,14 @@ const movieReducer = (state = [], action) => {
                 action.newMovie
             ];
         case FIND_MOVIE_BY_IMDBID:
-            console.log("test FIND_MOVIE_BY_IMDBID")
-            console.log(action.movies);
             return state.filter(movie => movie.imdbID === action.movies.imdbID)
         case FIND_ALL_MOVIES:
             return action.movies;
         case GET_RANDOM_MOVIES:
             return action.movies;
+        case UPDATE_COMMENT:
+            state["history_comment"].push(action.comment)
+            return state;
         default:
             return movie;
     }

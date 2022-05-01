@@ -9,31 +9,25 @@ import Navigation from "../Navigation";
 
 const EditProfListItem = () => {
     const prof = useSelector(state => state.profileReducer);
-
     const {profile} = useProfile();
-    console.log(profile)
     const dispatch = useDispatch();
     const saveClickHandler = () => {
         if (profile && profile._id) {
-                    if (profile.realUser === false) {
-                        updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value)
-                        if (idEdited.current.value){
-                            updateUserReal(dispatch, profile._id, true)
-                        }
+            if (profile.realUser === false) {
+                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value)
+                if (idEdited.current.value){
+                    updateUserReal(dispatch, profile._id, true)
+                }
 
-                    }
-                    if (profile.realUser === true) {
-                        updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value);
-                        if (!idEdited.current.value){
-                            updateUserReal(dispatch, profile._id, false)
-                        }
-                    }
-                } }
+            }
+            if (profile.realUser === true) {
+                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value);
+                if (!idEdited.current.value){
+                    updateUserReal(dispatch, profile._id, false)
+                }
+            }
+        } }
         // dispatch({type: 'save', bio, website, username, location, email})
-
-
-
-
 
     const usernameEdited = useRef();
     const emailEdited = useRef();
