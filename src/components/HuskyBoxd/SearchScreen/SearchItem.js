@@ -19,7 +19,8 @@ const SearchItem = ({movie}) => {
                 <div className="row">
                     <div className="col-2">
                         <div onClick={toDetails}>
-                            <img src={movie.Poster} height="150px" width="100%" alt={''}/>
+                            {movie.Poster && <img src={movie.Poster} height="150px" width="100%" alt={''}/>}
+                            {!movie.Poster && <img src="../../pictures/no-image.jpg" height="150px" width="100%" alt={''}/>}
                         </div>
                     </div>
                     <div className="col-10">

@@ -27,20 +27,12 @@ const SearchScreen = () => {
         const response = await axios.get(`${searchUrl}&s=${searchString}`)
         setMovies(response.data.Search)
         titleSearchRef.current.value = searchString
-        // for (let i = 0; i < movies.length; i++) {
-        //     movieIdList.push(movies[i].imdbID);
-        // }
-        // console.log(movieIdList);
+
     }
     useEffect(() => {
         searchByTitle()
     }, [])
 
-    // useEffect(() => {
-    //     findMovieIDList(dispatch, movieIdList);
-    // }, [])
-    // console.log("movieList");
-    // console.log(movieList);
     const toShow = movieSearch === "undefined";
     return (
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>

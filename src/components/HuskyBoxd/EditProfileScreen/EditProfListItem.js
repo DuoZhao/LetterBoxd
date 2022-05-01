@@ -14,16 +14,22 @@ const EditProfListItem = () => {
     const saveClickHandler = () => {
         if (profile && profile._id) {
             if (profile.realUser === false) {
-                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value)
-                if (idEdited.current.value){
+                console.log('1')
+                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, RealIdEdited.current.value)
+                if (RealIdEdited.current.value){
                     updateUserReal(dispatch, profile._id, true)
                 }
 
             }
-            if (profile.realUser === true) {
-                updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, idEdited.current.value);
-                if (!idEdited.current.value){
+            else {
+                if (!RealIdEdited.current.value){
+                    console.log(RealIdEdited.current.value)
+                    updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, RealIdEdited.current.value);
                     updateUserReal(dispatch, profile._id, false)
+                }
+                else{
+                    console.log(RealIdEdited.current.value)
+                    updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, RealIdEdited.current.value);
                 }
             }
         } }
@@ -31,7 +37,7 @@ const EditProfListItem = () => {
 
     const usernameEdited = useRef();
     const emailEdited = useRef();
-    const idEdited = useRef();
+    const RealIdEdited = useRef();
 
 
     return (
@@ -51,16 +57,7 @@ const EditProfListItem = () => {
                                 {profile && profile.username}
                             </textarea>
                             <br/><br/>
-                            <div className="row">
-                                <div className="col-6">
-                                    GivenName: <br/>
-                                    <input type="text" style={{"background-color": "#445566"}}/>
-                                </div>
-                                <div className="col-6">
-                                    FamilyName: <br/>
-                                    <input type="text" style={{"background-color": "#445566"}}/>
-                                </div>
-                            </div>
+
                             <br/>
                             Email Address: <br/>
                             <textarea  placeholder="Your Email" ref={emailEdited}
@@ -68,20 +65,12 @@ const EditProfListItem = () => {
                                 {profile && profile.email}
                             </textarea>
                             <br/><br/>
-                            <div className="row">
-                                <div className="col-6">
-                                    Location: <br/>
-                                    <input type="text" style={{"background-color": "#445566"}}/>
-                                </div>
-                                <div className="col-6">
-                                    Website: <br/>
-                                    <input type="text" style={{"background-color": "#445566"}}/>
-                                </div>
-                            </div>
+
                             <br/>
-                            ID: <br/>
-                            <textarea  ref={idEdited}
+                            Real ID: <br/>
+                            <textarea  ref={RealIdEdited}
                                        style={{"width": "90%", "background-color": "#445566"}}>
+                                {profile && profile.realID}
                             </textarea>
                             <br/> <br/>
                             <div className="row">
@@ -97,7 +86,7 @@ const EditProfListItem = () => {
                                 </div>
                                 <br/><br/><br/><br/><br/>
                             </div>
-                            <br/> <br/>
+                            <br/><br/><br/><br/><br/>
                         </div>
                     </div>
 
