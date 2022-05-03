@@ -28,7 +28,6 @@ const ProfListItem = () => {
         } else if (!profile) {
             navigate(`/huskyboxd/login`)
         }
-        //console.log(finalProfile);
     }
 
     useEffect(() => { redirectLogin();}, []);

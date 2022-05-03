@@ -1,6 +1,6 @@
 import "./index.css";
 import {useRef} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useProfile} from "../contexts/profile-context.js";
 
 const LoginComponent = () => {
@@ -87,8 +87,6 @@ const LoginComponent = () => {
                                                     <i className="input-icon fa-solid fa-lock" id="wd-pass-login"/>
                                                 </div>
                                                 <a href="#" className="btn mt-4" onClick={() => login()}>submit</a>
-                                                <p className="mb-0 mt-4 text-center"><a href="#0" className="link">Forgot
-                                                    your password?</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -135,8 +133,8 @@ const LoginComponent = () => {
                                                     </div>
                                                     <label htmlFor="wd-check-realID">Role: Real ID Account?</label>
                                                 </div>
-                                                <a href="#" className="btn btn-primary mt-4"
-                                                   onClick={() => create()}>submit</a>
+                                                <div><Link to="/huskyboxd/privacy" className="link">Privacy</Link></div>
+                                                <a href="#" className="btn btn-primary mt-2" onClick={() => create()}>submit</a>
                                             </div>
                                         </div>
                                     </div>
