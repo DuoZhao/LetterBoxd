@@ -118,13 +118,13 @@
 .wd-search{
     width: 140px;
     position: absolute;
-    right: 0;
-    top: 16px;
+    right: 20px;
+    top: -60px;
     height: 30px;
 }
 .wd-search input {
     position: relative;
-    width: 137px;
+    width: 100%;
     height: 30px;
     background-color: hsl(0deg 0% 56% / 52%);
     border-radius: 15px;
@@ -137,7 +137,7 @@
     appearance: none;
 }
 .wd-search input:hover{
-    background-color: gray;
+    background-color: hsl(0deg 0% 56% / 52%);
     /*background-color: rgba(253, 253, 253, 0.829);*/
 }
 .wd-search button {

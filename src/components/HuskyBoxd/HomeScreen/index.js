@@ -13,10 +13,13 @@ const HomeScreen = () => {
     const {profile} = useProfile();
     const login = (profile !== undefined);
     const movie = useSelector(state => state.movie);
+    console.log(movie);
     const dispatch = useDispatch();
+
     useEffect(() => {
         getRandomMovies(dispatch);
-    }, []);
+        }, []);
+
     return (
         <>
             <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
@@ -53,13 +56,13 @@ const HomeScreen = () => {
                 <div className="row mt-auto">
                     <div className="col-1"/>
 
-                    <div className="col-5">
+                    <div className="col-6">
                         <Comments movie={movie}/>
                     </div>
 
                     <div className="col-1"/>
 
-                    <div className="col-4">
+                    <div className="col-3">
                         <PopularList/>
                     </div>
 

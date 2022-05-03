@@ -5,6 +5,9 @@ import {useDispatch} from "react-redux";
 import {useProfile} from "../contexts/profile-context";
 import {findUserByID} from "../actions/user-actions";
 import Navigation from "../Navigation";
+import {findMovieIDList, findMovieByimdbID} from "../actions/movie-action";
+import MoviesList from "../MoviesListComponent";
+import {useSelector} from "react-redux";
 
 
 const ProfListItem = () => {
@@ -17,7 +20,6 @@ const ProfListItem = () => {
     const {userId} = useParams()
     let {profile} = useProfile();
     const dispatch = useDispatch();
-
     const redirectLogin = () => {
         if (userId) {
             setFinalProfile(findUserByID(dispatch, userId));
@@ -26,26 +28,56 @@ const ProfListItem = () => {
         } else if (!profile) {
             navigate(`/huskyboxd/login`)
         }
-        console.log(finalProfile);
     }
 
-    useEffect(() => {
-        redirectLogin();
-    }, []);
+    useEffect(() => { redirectLogin();}, []);
+
+
+    let movies = useSelector(state => state.movie);
+    useEffect(() => { findMovieIDList(dispatch, profile.history_movie);},[]);
+
+    function isPromise(p) {
+        if (typeof p === 'object' && typeof p.then === 'function') {
+            return true;
+        }
+        return false;
+    }
+
+    for (let i = 0 ; i < movies.length; i++) {
+        if (isPromise(movies[i])) {
+            movies.pop(movies[i]);
+        }
+    }
+    console.log(isPromise(movies[3]));
 
     return (
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
+            {/*navigation*/}
             <Navigation login={true}/>
 
+            {/*background*/}
+            {/*<div style={{"height": "400px"}}>*/}
+            {/*    {profile.profilePicture && <img src={profile.profilePicture} height="550px" width="100%"/>}*/}
+            {/*    {!profile.profilePicture && <img src="../pictures/cyperpunk.jpg" height="550px" width="100%"/>}*/}
+            {/*    /!*<img src={profile.bannerPicture} height="550px" width="100%"/>*!/*/}
+            {/*</div>*/}
             <div style={{"height": "400px"}}>
-                <img src={finalProfile && finalProfile.bannerPicture} height="550px" width="100%"/>
+                {finalProfile && finalProfile.bannerPicture && < img src={finalProfile.bannerPicture} height="550px" width="100%"/>}
+                {finalProfile && !finalProfile.bannerPicture && < img src="../pictures/cyperpunk.jpg" height="550px" width="100%"/>}
             </div>
 
+            {/*avatar*/}
             <div style={{"padding-top": "50px", "padding-left": "100px", "position": "relative"}}>
                 <div className="row">
                     <div className="col-1">
-                        <img src={finalProfile && finalProfile.profilePicture} height="100px" width="100px"
-                             style={{"border-radius": "50%", "float": "left"}}/>
+                        {/*<img src={finalProfile && finalProfile.profilePicture} height="100px" width="100px"*/}
+                        {/*     style={{"border-radius": "50%", "float": "left"}}/>*/}
+                        {/*<img src={!finalProfile && "../pictures/ready-player-one.jpg.jpg"} height="100px" width="100px"*/}
+                        {/*     style={{"border-radius": "50%", "float": "left"}}/>*/}
+                        {profile.profilePicture && <img src={profile.profilePicture} height="100px" width="100px"
+                                                             style={{"border-radius": "50%", "float": "left"}}/>}
+                        {!profile.profilePicture && <img src="../pictures/default_avatar.jpg" height="100px" width="100px"
+                                                              style={{"border-radius": "50%", "float": "left"}}/>}
                     </div>
                     <div className="col-2">
                         <span style={{"height": "50px", "padding-left": "40px"}}>
@@ -220,148 +252,154 @@ const ProfListItem = () => {
 
             <br/><br/>
 
-            <div className="container">
-                <div className="row">
-                    <text>Favourite Movies</text>
-                </div>
 
-                <div style={{
-                    "width": "100%",
-                    "border-style": "solid",
-                    "border-width": "thin",
-                    "border-color": "white",
-                    "border-left": "none",
-                    "border-right": "none",
-                    "border-bottom": "none"
-                }}>
-                </div>
+            <MoviesList movie={movies}/>
 
-                <div className="wd-favoritefilms-list">
-                    <div className="wd-favoritefilms  col-3">
-                        <a href="/">
-                            <img src="../pictures/incredibles.jpg" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
-                    <div className="wd-favoritefilms  col-3">
-                        <a href="/">
-                            <img src="../pictures/zootopia.webp" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
-                    <div className="wd-favoritefilms col-3">
-                        <a href="/">
-                            <img src="../pictures/coco.webp" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
-                    <div className="wd-favoritefilms  col-3">
-                        <a href="/">
-                            <img src="../pictures/Your_name_poster.jpg" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
+            <br/><br/>
 
-                </div>
+            {/*<div className="container">*/}
+            {/*    <div className="row">*/}
+            {/*        <text>Favourite Movies</text>*/}
+            {/*    </div>*/}
+
+            {/*    <div style={{*/}
+            {/*        "width": "100%",*/}
+            {/*        "border-style": "solid",*/}
+            {/*        "border-width": "thin",*/}
+            {/*        "border-color": "white",*/}
+            {/*        "border-left": "none",*/}
+            {/*        "border-right": "none",*/}
+            {/*        "border-bottom": "none"*/}
+            {/*    }}>*/}
+            {/*    </div>*/}
 
 
-            </div>
+            {/*    <div className="wd-favoritefilms-list">*/}
+            {/*        <div className="wd-favoritefilms  col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/incredibles.jpg" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="wd-favoritefilms  col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/zootopia.webp" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="wd-favoritefilms col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/coco.webp" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="wd-favoritefilms  col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/Your_name_poster.jpg" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
 
-            <br/>
+            {/*    </div>*/}
 
-            <div className="container">
-                <div className="row">
-                    <text>Recent Activities</text>
-                </div>
 
-                <div style={{
-                    "width": "100%",
-                    "border-style": "solid",
-                    "border-width": "thin",
-                    "border-color": "white",
-                    "border-left": "none",
-                    "border-right": "none",
-                    "border-bottom": "none"
-                }}>
-                </div>
+            {/*</div>*/}
 
-                <div className="wd-favoritefilms-list">
-                    <div className="wd-favoritefilms  col-3">
-                        <a href="/">
-                            <img src="../pictures/readyplayerone.jpg" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
-                    <div className="wd-favoritefilms  col-3">
-                        <a href="/">
-                            <img src="../pictures/Transformers5.jpg" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
-                    <div className="wd-favoritefilms col-3">
-                        <a href="/">
-                            <img src="../pictures/interstellar.jpg" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
-                    <div className="wd-favoritefilms  col-3">
-                        <a href="/">
-                            <img src="../pictures/bighero6.jpeg" className="wd-img" alt="movie name"
-                                 style={{"width": "100%"}}/>
-                        </a>
-                        <div className="wd-cover-img">
-                            <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>3,015 </p>
-                            <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p
-                            style={{"font-size": "20px"}}>724 </p>
-                        </div>
-                    </div>
+            {/*<br/>*/}
 
-                </div>
+            {/*<div className="container">*/}
+            {/*    <div className="row">*/}
+            {/*        <text>Recent Activities</text>*/}
+            {/*    </div>*/}
 
-            </div>
+            {/*    <div style={{*/}
+            {/*        "width": "100%",*/}
+            {/*        "border-style": "solid",*/}
+            {/*        "border-width": "thin",*/}
+            {/*        "border-color": "white",*/}
+            {/*        "border-left": "none",*/}
+            {/*        "border-right": "none",*/}
+            {/*        "border-bottom": "none"*/}
+            {/*    }}>*/}
+            {/*    </div>*/}
+
+            {/*    <div className="wd-favoritefilms-list">*/}
+            {/*        <div className="wd-favoritefilms  col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/readyplayerone.jpg" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="wd-favoritefilms  col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/Transformers5.jpg" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="wd-favoritefilms col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/interstellar.jpg" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="wd-favoritefilms  col-3">*/}
+            {/*            <a href="/">*/}
+            {/*                <img src="../pictures/bighero6.jpeg" className="wd-img" alt="movie name"*/}
+            {/*                     style={{"width": "100%"}}/>*/}
+            {/*            </a>*/}
+            {/*            <div className="wd-cover-img">*/}
+            {/*                <i className="fas fa-eye" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>3,015 </p>*/}
+            {/*                <i className="fas fa-heart" style={{"font-size": "20px"}}/> <p*/}
+            {/*                style={{"font-size": "20px"}}>724 </p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+
+            {/*    </div>*/}
+
+            {/*</div>*/}
 
             <br/> <br/> <br/>
 

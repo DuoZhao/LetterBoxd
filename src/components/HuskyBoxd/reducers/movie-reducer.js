@@ -5,7 +5,8 @@ import {
     FIND_MOVIE_BY_IMDBID,
     CREATE_MOVIE,
     GET_RANDOM_MOVIES,
-    UPDATE_COMMENT
+    UPDATE_COMMENT,
+    FIND_MOVIE_LIST
 } from "../actions/movie-action";
 
 const movieReducer = (state = [], action) => {
@@ -24,10 +25,16 @@ const movieReducer = (state = [], action) => {
         case FIND_ALL_MOVIES:
             return action.movies;
         case GET_RANDOM_MOVIES:
+            console.log("get rNADOM");
+            console.log(action.movies);
             return action.movies;
         case UPDATE_COMMENT:
             state["history_comment"].push(action.comment)
             return state;
+        case FIND_MOVIE_LIST:
+            console.log("Test find list");
+            console.log(action.movies);
+            return action.movies;
         default:
             return movie;
     }
