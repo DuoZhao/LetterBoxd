@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import * as service from "../services/auth-services";
 
-const ProfileContext = React.createContext()
+const ProfileContext = React.createContext();
 
 export const ProfileProvider = ({children}) => {
     const [profile, setProfile] = useState()
@@ -57,7 +57,16 @@ export const ProfileProvider = ({children}) => {
         }
     }
 
-    const value = {profile, signup, checkLoggedIn, signin, signupRealID}
+    const logout = async () => {
+        try {
+            await service.logout()
+            setProfile(undefined);
+        } catch (e) {
+            throw e
+        }
+    }
+
+    const value = {profile, signup, checkLoggedIn, signin, signupRealID, logout}
     return (
         <ProfileContext.Provider value={value}>
             {children}

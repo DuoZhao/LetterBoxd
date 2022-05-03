@@ -1,15 +1,9 @@
 import React from "react";
 import "../Styles/homepage.css"
 import {Link} from "react-router-dom";
-import {useProfile} from "../contexts/profile-context";
 
-const HomeComponents = (
-    {
-        login = false
-    }
-
-) => {
-    const {profile} = useProfile();
+const HomeComponents = ({profile}) => {
+    const login = (profile !== undefined);
     return (
         <>
             {

@@ -8,10 +8,10 @@ import {useProfile} from "../contexts/profile-context";
 import {useDispatch, useSelector} from "react-redux";
 import {getRandomMovies} from "../actions/movie-action";
 
-const HomeScreen = ({login}) => {
+const HomeScreen = () => {
 
     const {profile} = useProfile();
-    login = (profile !== undefined);
+    const login = (profile !== undefined);
     const movie = useSelector(state => state.movie);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -28,7 +28,7 @@ const HomeScreen = ({login}) => {
 
                 {/*Homepage*/}
                 <div className="row mt-auto">
-                    <HomeComponents login={login}/>
+                    <HomeComponents profile={profile}/>
                 </div>
 
                 {/*Watched list*/}

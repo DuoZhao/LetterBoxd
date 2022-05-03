@@ -2,13 +2,13 @@ import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import "./index.css"
 import "../Styles/navigation.css"
+import {useProfile} from "../contexts/profile-context";
 
-const Navigation = (
-    {
-        login = false
-    }) => {
+const Navigation = ({login}) => {
+    const {logout} = useProfile()
     const navigate = useNavigate()
-    const test = () =>  {
+    const logoutBtn = () => {
+        logout();
         navigate("/huskyboxd/login");
     }
     return (
@@ -43,7 +43,9 @@ const Navigation = (
                             <nav className="wd-menu">
                                 {
                                     !login && <ul className="wd-menu-ul">
-                                            <li className="wd-menu-li" onClick={() => test()}>SIGN IN</li>
+                                        <Link to="/huskyboxd/login">
+                                            <li className="wd-menu-li">SIGN IN</li>
+                                        </Link>
                                         <Link to="/huskyboxd/login">
                                             <li className="wd-menu-li">CREATE ACCOUNT</li>
                                         </Link>
@@ -80,6 +82,10 @@ const Navigation = (
                                         <li className="wd-menu-li p-0 me-2">
                                             <i className="fa fa-list me-1"/>
                                             LISTS
+                                        </li>
+                                        <li className="wd-menu-li p-0 me-2" onClick={() => logoutBtn()}>
+                                            <i className="fa-solid fa-arrow-right-from-bracket"/>
+                                            LOGOUT
                                         </li>
                                     </ul>
                                 }
