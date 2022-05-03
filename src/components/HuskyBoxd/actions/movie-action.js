@@ -51,7 +51,7 @@ export const updateMovieComment = async (dispatch, imdbID, comment) => {
 }
 
 export const findMovieIDList = async (dispatch, movieList) => {
-    const movies = service.findMovieIDList(movieList);
+    const movies = await service.findMovieIDList(movieList);
     dispatch({
         type: FIND_MOVIE_LIST,
         movies: movies

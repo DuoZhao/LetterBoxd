@@ -32,6 +32,6 @@ export const getRandomMovies = async () => {
 }
 
 export const findMovieIDList = async (movieList) => {
-    const response = await axios.get(`${MOVIE_API_URL}/list`, {movieList});
+    const response = await axios.post(`${MOVIE_API_URL}/list`, {movieList});
     return response.data;
 }
