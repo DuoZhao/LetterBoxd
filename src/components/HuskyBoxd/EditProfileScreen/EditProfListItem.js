@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import {updateUser, updateUserReal} from "../actions/user-actions";
 import {useProfile} from "../contexts/profile-context";
 import Navigation from "../Navigation";
+import HistoryComponent from "../MoviesListComponent/HistoryMovieList";
 
 
 const EditProfListItem = () => {
@@ -43,115 +44,137 @@ const EditProfListItem = () => {
                 Settings</h3>
             <div className="container">
                 <div className="row">
-                    <div className="col-6">
-                        <div className="container">
-                            Name: <br/>
-                            <textarea ref={usernameEdited} placeholder="Your Name" id="username"
-                                      style={{"width": "90%", "background-color": "#445566", "height": "35px"}}>
+                    <div className="col-10">
+                        <div className="row">
+
+                            <div className="col-1">
+
+                            </div>
+
+                            <div className="col-5">
+                                Name: <br/>
+                                <textarea ref={usernameEdited} placeholder="Your Name" id="username"
+                                          style={{"width": "90%", "background-color": "#445566", "height": "35px"}}>
                                 {profile && profile.username}
                             </textarea>
-                            <br/><br/>
-
-                            <br/>
-                            Email Address: <br/>
-                            <textarea placeholder="Your Email" ref={emailEdited}
-                                      style={{"width": "90%", "background-color": "#445566"}}>
-                                {profile && profile.email}
-                            </textarea>
-                            <br/><br/>
-
-                            <br/>
-                            Real ID: <br/>
-                            <textarea ref={RealIdEdited}
-                                      style={{"width": "90%", "background-color": "#445566"}}>
+                                <br/><br/>
+                                <br/><br/>
+                                Real ID: <br/>
+                                <textarea ref={RealIdEdited}
+                                          style={{"width": "90%", "background-color": "#445566"}}>
                                 {profile && profile.realID}
                             </textarea>
-                            <br/> <br/>
-                            <div className="row">
-                                <div className="col-6">
-                                    <button type="button"
-                                            style={{"width": "200px", "background-color": "purple"}}>CHANGE PASSWORD
-                                    </button>
-                                </div>
-                                <div className="col-6">
-                                    <button type="button" style={{"width": "200px", "background-color": "green"}}
-                                            onClick={saveClickHandler}>SAVE
-                                        CHANGES
-                                    </button>
-                                </div>
-                                <br/><br/><br/><br/><br/>
+                                <br/> <br/>
                             </div>
-                            <br/><br/><br/><br/><br/>
+
+                            <div className="col-1">
+
+                            </div>
+
+                            <div className="col-5">
+                                Email Address: <br/>
+                                <textarea placeholder="Your Email" ref={emailEdited}
+                                          style={{"width": "90%", "background-color": "#445566"}}>
+                                {profile && profile.email}
+                                </textarea>
+
+                                <br/><br/><br/><br/><br/>
+
+                                <button type="button" style={{"width": "200px", "background-color": "green"}}
+                                        onClick={saveClickHandler}>SAVE
+                                    CHANGES
+                                </button>
+
+                                    <br/><br/>
+                            </div>
                         </div>
+
                     </div>
 
 
-                    <div className="col-6">
-                        <h3 style={{"font-family": "TiemposHeadlineWeb-Bold,Georgia,serif"}}>Favourite Films</h3>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-3" style={{
-                                    "border-style": "solid",
-                                    "border-color": "#445566",
-                                    "height": "200px",
-                                    "background-color": "grey",
-                                    "position": "relative"
-                                }}>
-                                    <div style={{
-                                        "position": "absolute",
-                                        "padding-top": "77px",
-                                        "padding-left": "47px",
-                                        "height": "30px",
-                                        "weight": "30px"
-                                    }}>
-                                        <button type="button"
-                                                style={{"background-color": "#445566", "border-radius": "70%"}}>+
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="col-3" style={{
-                                    "border-style": "solid",
-                                    "border-color": "#445566",
-                                    "height": "200px",
-                                    "background-color": "grey"
-                                }}>
-                                    <div
-                                        style={{"position": "absolute", "padding-top": "77px", "padding-left": "47px"}}>
-                                        <button type="button"
-                                                style={{"background-color": "#445566", "border-radius": "50%"}}>+
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="col-3" style={{
-                                    "border-style": "solid",
-                                    "border-color": "#445566",
-                                    "height": "200px",
-                                    "background-color": "grey"
-                                }}>
-                                    <div
-                                        style={{"position": "absolute", "padding-top": "77px", "padding-left": "47px"}}>
-                                        <button type="button"
-                                                style={{"background-color": "#445566", "border-radius": "50%"}}>+
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="col-3" style={{
-                                    "border-style": "solid",
-                                    "border-color": "#445566",
-                                    "height": "200px",
-                                    "background-color": "grey"
-                                }}>
-                                    <div
-                                        style={{"position": "absolute", "padding-top": "77px", "padding-left": "47px"}}>
-                                        <button type="button"
-                                                style={{"background-color": "#445566", "border-radius": "50%"}}>+
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    {/*<div className="col-6">*/}
+                    {/*    <h3 style={{"font-family": "TiemposHeadlineWeb-Bold,Georgia,serif"}}>Favourite Films</h3>*/}
+                    {/*    /!*<div className="container">*!/*/}
+                    {/*    /!*    <div className="row">*!/*/}
+                    {/*    /!*        <div className="col-3" style={{*!/*/}
+                    {/*    /!*            "border-style": "solid",*!/*/}
+                    {/*    /!*            "border-color": "#445566",*!/*/}
+                    {/*    /!*            "height": "200px",*!/*/}
+                    {/*    /!*            "background-color": "grey",*!/*/}
+                    {/*    /!*            "position": "relative"*!/*/}
+                    {/*    /!*        }}>*!/*/}
+                    {/*    /!*            <div style={{*!/*/}
+                    {/*    /!*                "position": "absolute",*!/*/}
+                    {/*    /!*                "padding-top": "77px",*!/*/}
+                    {/*    /!*                "padding-left": "47px",*!/*/}
+                    {/*    /!*                "height": "30px",*!/*/}
+                    {/*    /!*                "weight": "30px"*!/*/}
+                    {/*    /!*            }}>*!/*/}
+                    {/*    /!*                <button type="button"*!/*/}
+                    {/*    /!*                        style={{"background-color": "#445566", "border-radius": "70%"}}>+*!/*/}
+                    {/*    /!*                </button>*!/*/}
+                    {/*    /!*            </div>*!/*/}
+                    {/*    /!*        </div>*!/*/}
+                    {/*    /!*        <div className="col-3" style={{*!/*/}
+                    {/*    /!*            "border-style": "solid",*!/*/}
+                    {/*    /!*            "border-color": "#445566",*!/*/}
+                    {/*    /!*            "height": "200px",*!/*/}
+                    {/*    /!*            "background-color": "grey"*!/*/}
+                    {/*    /!*        }}>*!/*/}
+                    {/*    /!*            <div*!/*/}
+                    {/*    /!*                style={{"position": "absolute", "padding-top": "77px", "padding-left": "47px"}}>*!/*/}
+                    {/*    /!*                <button type="button"*!/*/}
+                    {/*    /!*                        style={{"background-color": "#445566", "border-radius": "50%"}}>+*!/*/}
+                    {/*    /!*                </button>*!/*/}
+                    {/*    /!*            </div>*!/*/}
+                    {/*    /!*        </div>*!/*/}
+                    {/*    /!*        <div className="col-3" style={{*!/*/}
+                    {/*    /!*            "border-style": "solid",*!/*/}
+                    {/*    /!*            "border-color": "#445566",*!/*/}
+                    {/*    /!*            "height": "200px",*!/*/}
+                    {/*    /!*            "background-color": "grey"*!/*/}
+                    {/*    /!*        }}>*!/*/}
+                    {/*    /!*            <div*!/*/}
+                    {/*    /!*                style={{"position": "absolute", "padding-top": "77px", "padding-left": "47px"}}>*!/*/}
+                    {/*    /!*                <button type="button"*!/*/}
+                    {/*    /!*                        style={{"background-color": "#445566", "border-radius": "50%"}}>+*!/*/}
+                    {/*    /!*                </button>*!/*/}
+                    {/*    /!*            </div>*!/*/}
+                    {/*    /!*        </div>*!/*/}
+                    {/*    /!*        <div className="col-3" style={{*!/*/}
+                    {/*    /!*            "border-style": "solid",*!/*/}
+                    {/*    /!*            "border-color": "#445566",*!/*/}
+                    {/*    /!*            "height": "200px",*!/*/}
+                    {/*    /!*            "background-color": "grey"*!/*/}
+                    {/*    /!*        }}>*!/*/}
+                    {/*    /!*            <div*!/*/}
+                    {/*    /!*                style={{"position": "absolute", "padding-top": "77px", "padding-left": "47px"}}>*!/*/}
+                    {/*    /!*                <button type="button"*!/*/}
+                    {/*    /!*                        style={{"background-color": "#445566", "border-radius": "50%"}}>+*!/*/}
+                    {/*    /!*                </button>*!/*/}
+                    {/*    /!*            </div>*!/*/}
+                    {/*    /!*        </div>*!/*/}
+                    {/*    /!*    </div>*!/*/}
+                    {/*    /!*</div>*!/*/}
+
+
+                    {/*</div>*/}
+                </div>
+
+                <br/><br/><br/>
+
+                <div className="row">
+                    <div className="col-1">
+
+                    </div>
+
+                    <div className="col-10">
+                        <h5 style={{"font-family": "TiemposHeadlineWeb-Bold,Georgia,serif", "color":"green"}}>History Films</h5>
+                        <HistoryComponent />
                     </div>
                 </div>
+                <br/><br/><br/>
             </div>
         </div>
     );

@@ -6,8 +6,10 @@ import {useProfile} from "../contexts/profile-context";
 import {findUserByID} from "../actions/user-actions";
 import Navigation from "../Navigation";
 import {findMovieIDList, findMovieByimdbID} from "../actions/movie-action";
-import MoviesList from "../MoviesListComponent";
+import FavoriteComponent from "../MoviesListComponent/FavoriteMovieList";
+import HistoryComponent from "../MoviesListComponent/HistoryMovieList";
 import {useSelector} from "react-redux";
+
 
 
 const ProfListItem = () => {
@@ -33,22 +35,29 @@ const ProfListItem = () => {
     useEffect(() => { redirectLogin();}, []);
 
 
-    let movies = useSelector(state => state.movie);
-    useEffect(() => { findMovieIDList(dispatch, profile.history_movie);},[]);
-
-    function isPromise(p) {
-        if (typeof p === 'object' && typeof p.then === 'function') {
-            return true;
-        }
-        return false;
-    }
-
-    for (let i = 0 ; i < movies.length; i++) {
-        if (isPromise(movies[i])) {
-            movies.pop(movies[i]);
-        }
-    }
-    console.log(isPromise(movies[3]));
+    // let movies = useSelector(state => state.movie);
+    // useEffect(() => { findMovieIDList(dispatch, profile.history_movie);},[]);
+    // let movies2 = useSelector(state => state.movie);
+    // useEffect(() => { findMovieIDList(dispatch, profile.favorite_movie);},[]);
+    //
+    // function isPromise(p) {
+    //     if (typeof p === 'object' && typeof p.then === 'function') {
+    //         return true;
+    //     }
+    //     return false;
+    // }
+    //
+    // for (let i = 0 ; i < movies.length; i++) {
+    //     if (isPromise(movies[i])) {
+    //         movies.pop(movies[i]);
+    //     }
+    // }
+    // for (let i = 0 ; i < movies2.length; i++) {
+    //     if (isPromise(movies2[i])) {
+    //         movies2.pop(movies2[i]);
+    //     }
+    // }
+    // console.log(isPromise(movies[3]));
 
     return (
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
@@ -250,10 +259,19 @@ const ProfListItem = () => {
                 </div>
             </div>
 
-            <br/><br/>
 
 
-            <MoviesList movie={movies}/>
+            <br/><br/><br/>
+
+            <div className="container">
+                <div className="wd-divider">
+                    Favorite Movie
+                </div>
+                <br/>
+                <FavoriteComponent />
+            </div>
+
+
 
             <br/><br/>
 
