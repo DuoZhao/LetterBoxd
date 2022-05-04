@@ -7,6 +7,11 @@ const LoginComponent = () => {
     const navigate = useNavigate();
     const {signin, signup, signupRealID} = useProfile()
     const create = async () => {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (signupEmail.current.value && !re.test(signupEmail.current.value)) {
+            alert("Please enter valid an email");
+            return;
+        }
         try {
             if (!signupUserName.current.value || !signupEmail.current.value || !signupPassword.current.value) {
                 alert("Please enter your USERNAME, EMAIL and PASSWORD");
@@ -36,8 +41,13 @@ const LoginComponent = () => {
         }
     }
     const login = async () => {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!loginEmail.current.value || !loginPassword.current.value) {
             alert("Please enter your EMAIL and PASSWORD");
+            return;
+        }
+        if (!re.test(loginEmail.current.value)) {
+            alert("Please enter valid an email");
             return;
         }
         try {
@@ -72,7 +82,7 @@ const LoginComponent = () => {
                                         <div className="center-wrap">
                                             <div className="text-center">
                                                 <h4 className="mb-4 pb-3">Log In</h4>
-                                                <div className="form-group">
+                                                <div className="form-group" >
                                                     <input type="email" name="wd-login-email" className="form-style"
                                                            ref={loginEmail}
                                                            placeholder="Your Email" id="wd-login-email"
@@ -134,7 +144,8 @@ const LoginComponent = () => {
                                                     <label htmlFor="wd-check-realID">Role: Real ID Account?</label>
                                                 </div>
                                                 <div><Link to="/huskyboxd/privacy" className="link">Privacy</Link></div>
-                                                <a href="#" className="btn btn-primary mt-2" onClick={() => create()}>submit</a>
+                                                <a href="#" className="btn btn-primary mt-2"
+                                                   onClick={() => create()}>submit</a>
                                             </div>
                                         </div>
                                     </div>
