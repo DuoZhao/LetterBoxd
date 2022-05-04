@@ -5,7 +5,6 @@ import Navigation from "../Navigation";
 const LoginScreen = () => {
     return (
         <>
-            <Navigation login={true}/>
             <LoginComponent/>
         </>
     );

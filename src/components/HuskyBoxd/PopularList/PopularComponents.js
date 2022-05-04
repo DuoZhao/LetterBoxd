@@ -56,14 +56,6 @@ const PopularComponents = () => {
                             </div>
                         </div>
                         <br/><br/>
-                        <div>
-                            <Link to="/huskyboxd/privacy">
-                                <button>
-                                    Privacy Policy
-                                </button>
-                            </Link>
-                        </div>
-                        <br/><br/>
                     </div>
                 </div>
             </div>

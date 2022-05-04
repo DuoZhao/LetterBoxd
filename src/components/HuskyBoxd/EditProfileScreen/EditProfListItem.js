@@ -1,39 +1,33 @@
 import React, {useRef} from "react";
 import EditProfileNavigationComponent from "./EditProfileNavigationComponent";
-import {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {updateUser, updateUserReal} from "../actions/user-actions";
 import {useProfile} from "../contexts/profile-context";
 import Navigation from "../Navigation";
 
 
 const EditProfListItem = () => {
-    const prof = useSelector(state => state.profileReducer);
     const {profile} = useProfile();
     const dispatch = useDispatch();
     const saveClickHandler = () => {
         if (profile && profile._id) {
             if (profile.realUser === false) {
-                console.log('1')
                 updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, RealIdEdited.current.value)
-                if (RealIdEdited.current.value){
+                if (RealIdEdited.current.value) {
                     updateUserReal(dispatch, profile._id, true)
                 }
-
-            }
-            else {
-                if (!RealIdEdited.current.value){
-                    console.log(RealIdEdited.current.value)
+            } else {
+                if (!RealIdEdited.current.value) {
                     updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, RealIdEdited.current.value);
                     updateUserReal(dispatch, profile._id, false)
-                }
-                else{
-                    console.log(RealIdEdited.current.value)
+                } else {
                     updateUser(dispatch, profile._id, usernameEdited.current.value, emailEdited.current.value, RealIdEdited.current.value);
                 }
             }
-        } }
-        // dispatch({type: 'save', bio, website, username, location, email})
+            profile.checkLoggedIn();
+        }
+    }
+    // dispatch({type: 'save', bio, website, username, location, email})
 
     const usernameEdited = useRef();
     const emailEdited = useRef();
@@ -53,23 +47,23 @@ const EditProfListItem = () => {
                         <div className="container">
                             Name: <br/>
                             <textarea ref={usernameEdited} placeholder="Your Name" id="username"
-                                   style={{"width": "90%", "background-color": "#445566", "height":"35px"}}>
+                                      style={{"width": "90%", "background-color": "#445566", "height": "35px"}}>
                                 {profile && profile.username}
                             </textarea>
                             <br/><br/>
 
                             <br/>
                             Email Address: <br/>
-                            <textarea  placeholder="Your Email" ref={emailEdited}
-                                   style={{"width": "90%", "background-color": "#445566"}}>
+                            <textarea placeholder="Your Email" ref={emailEdited}
+                                      style={{"width": "90%", "background-color": "#445566"}}>
                                 {profile && profile.email}
                             </textarea>
                             <br/><br/>
 
                             <br/>
                             Real ID: <br/>
-                            <textarea  ref={RealIdEdited}
-                                       style={{"width": "90%", "background-color": "#445566"}}>
+                            <textarea ref={RealIdEdited}
+                                      style={{"width": "90%", "background-color": "#445566"}}>
                                 {profile && profile.realID}
                             </textarea>
                             <br/> <br/>
@@ -80,7 +74,8 @@ const EditProfListItem = () => {
                                     </button>
                                 </div>
                                 <div className="col-6">
-                                    <button type="button" style={{"width": "200px", "background-color": "green"}} onClick={saveClickHandler}>SAVE
+                                    <button type="button" style={{"width": "200px", "background-color": "green"}}
+                                            onClick={saveClickHandler}>SAVE
                                         CHANGES
                                     </button>
                                 </div>
@@ -89,7 +84,6 @@ const EditProfListItem = () => {
                             <br/><br/><br/><br/><br/>
                         </div>
                     </div>
-
 
 
                     <div className="col-6">

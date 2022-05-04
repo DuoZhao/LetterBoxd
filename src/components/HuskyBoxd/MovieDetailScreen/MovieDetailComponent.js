@@ -38,7 +38,6 @@ const MovieDetailComponent = ({movie}) => {
                                         <div className="far fa-heart" style={{color: "rgb(255, 128, 0)"}}/>
                                     </div>
                                 </div>
-
                             </section>
                         </div>
                     </div>
