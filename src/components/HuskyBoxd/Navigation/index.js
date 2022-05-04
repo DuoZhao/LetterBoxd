@@ -34,8 +34,8 @@ const Navigation = ({login}) => {
                 <section>
                     <div className="row mb-0">
                         {/*import logo*/}
-                        <Link to="/" className="col-3 float-start">
-                            <img src="../../pictures/images/lb3.png" className="w-100" alt="..."/>
+                        <Link to="/huskyboxd/home" className="col-3 float-start">
+                            <img src="../../pictures/huskyboxd.png" className="w-100" alt="..."/>
                         </Link>
 
                         {/*navigation list*/}
