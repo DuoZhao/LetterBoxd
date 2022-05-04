@@ -8,7 +8,10 @@ export const UPDATE_USER_REAL = 'UPDATE_USER_REAL';
 
 export const findUserByID = async (dispatch, userId) => {
     const userInfo =  await service.findUserByID(userId);
-    return userInfo;
+    dispatch({
+        type: FIND_USER_BY_ID,
+        userInfo
+    });
 }
 
 export const updateFavoriteMovie = async (dispatch, userId, movieId) => {

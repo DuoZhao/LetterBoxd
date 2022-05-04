@@ -8,12 +8,14 @@ import Navigation from "../Navigation";
 import {findMovieIDList, findMovieByimdbID} from "../actions/movie-action";
 import MoviesList from "../MoviesListComponent";
 import {useSelector} from "react-redux";
+import profileReducer from "../reducers/user-reducer";
 
 
 const ProfListItem = () => {
 
     const [finalProfile, setFinalProfile] = useState();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const otherProfile = useSelector(state => state.profileReducer)
     const NavigateToEditProfile = async () => {
         navigate(`/huskyboxd/editprofile`)
     }
@@ -22,20 +24,18 @@ const ProfListItem = () => {
     const dispatch = useDispatch();
     const redirectLogin = () => {
         if (userId) {
-            setFinalProfile(findUserByID(dispatch, userId));
+            findUserByID(dispatch, userId);
+            setFinalProfile(otherProfile);
         } else if (!userId && profile) {
             setFinalProfile(profile);
         } else if (!profile) {
             navigate(`/huskyboxd/login`)
         }
     }
-
     useEffect(() => { redirectLogin();}, []);
-
 
     let movies = useSelector(state => state.movie);
     useEffect(() => { findMovieIDList(dispatch, profile.history_movie);},[]);
-
     function isPromise(p) {
         if (typeof p === 'object' && typeof p.then === 'function') {
             return true;

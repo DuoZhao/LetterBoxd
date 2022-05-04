@@ -12,7 +12,6 @@ const CommentsComponents = ({comment}) => {
     if (!profile) {
         navigate(`/huskyboxd/login`)
     }
-    const userId = comment['id']
     const NavigateToProfile = (userID) => {
         navigate(`/huskyboxd/profile/` + userID)
     }

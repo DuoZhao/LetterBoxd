@@ -10,6 +10,8 @@ import {
 const UserReducer = (state = [], action) => {
     switch (action.type) {
         case FIND_USER_BY_ID:
+            console.log("FIND_USER_BY_ID")
+            console.log(action.userInfo)
             return action.userInfo
         // case UPDATE_USER:
         //     return state.map(
