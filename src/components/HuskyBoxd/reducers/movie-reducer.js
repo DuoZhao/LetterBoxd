@@ -30,6 +30,8 @@ const movieReducer = (state = [], action) => {
             state["history_comment"].push(action.comment)
             return state;
         case FIND_MOVIE_LIST:
+            console.log("FIND_MOVIE_LIST")
+            console.log(action.movies);
             return action.movies;
         default:
             return movie;

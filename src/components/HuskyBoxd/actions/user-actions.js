@@ -12,6 +12,7 @@ export const findUserByID = async (dispatch, userId) => {
         type: FIND_USER_BY_ID,
         userInfo
     });
+    return userInfo;
 }
 
 export const updateFavoriteMovie = async (dispatch, userId, movieId) => {

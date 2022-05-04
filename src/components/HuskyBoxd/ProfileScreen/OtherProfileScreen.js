@@ -3,50 +3,38 @@ import {Link, useParams} from "react-router-dom";
 import "../Styles/card.css";
 import {useDispatch, useSelector} from "react-redux";
 import Navigation from "../Navigation";
-import {findMovieIDList} from "../actions/movie-action";
-import MoviesList from "../MoviesListComponent";
 import {findUserByID} from "../actions/user-actions";
+import FavoriteComponentOther from "../MoviesListComponent/FavoriteMovieListOther";
 
 
 const OtherProfileScreen = () => {
+
     const finalProfile = useSelector(state => state.profileReducer)
     const {userId} = useParams()
     const dispatch = useDispatch();
-    let movies = useSelector(state => state.movie);
-    const historyMovieList = finalProfile && finalProfile.history_movie ? finalProfile.history_movie : [];
-    console.log("historyMovieList")
-    console.log(historyMovieList)
-    useEffect(() => {findUserByID(dispatch, userId);}, []);
-    useEffect(() => {findMovieIDList(dispatch, historyMovieList);}, []);
-
-    function isPromise(p) {
-        if (typeof p === 'object' && typeof p.then === 'function') {
-            return true;
-        }
-        return false;
-    }
-
-    for (let i = 0; i < movies.length; i++) {
-        if (isPromise(movies[i])) {
-            movies.pop(movies[i]);
-        }
-    }
+    useEffect(() => {
+        findUserByID(dispatch, userId);
+    }, []);
     return (
         <div style={{backgroundColor: "rgba(20,24,28,255)"}}>
+            {/*navigation*/}
             <Navigation login={true}/>
             <div style={{"height": "400px"}}>
                 {finalProfile && finalProfile.bannerPicture &&
                 < img src={finalProfile.bannerPicture} height="550px" width="100%"/>}
                 {finalProfile && !finalProfile.bannerPicture &&
-                < img src="../pictures/cyperpunk.jpg" height="550px" width="100%"/>}
+                < img src="../../pictures/cyperpunk.jpg" height="550px" width="100%"/>}
             </div>
+
+            {/*avatar*/}
             <div style={{"padding-top": "50px", "padding-left": "100px", "position": "relative"}}>
                 <div className="row">
                     <div className="col-1">
-                        {finalProfile && finalProfile.profilePicture && <img src={finalProfile && finalProfile.profilePicture} height="100px" width="100px"
-                                                        style={{"border-radius": "50%", "float": "left"}}/>}
+                        {finalProfile && finalProfile.profilePicture &&
+                        <img src={finalProfile && finalProfile.profilePicture} height="100px" width="100px"
+                             style={{"border-radius": "50%", "float": "left"}}/>}
                         {finalProfile && !finalProfile.profilePicture &&
-                        <img src="../pictures/default_avatar.jpg" height="100px" width="100px"
+                        <img src="../../pictures/default_avatar.jpg" height="100px" width="100px"
                              style={{"border-radius": "50%", "float": "left"}}/>}
                     </div>
                     <div className="col-2">
@@ -202,11 +190,21 @@ const OtherProfileScreen = () => {
                     </div>
                 </div>
             </div>
-            <br/><br/>
-            <MoviesList movie={movies}/>
+
+
+            <br/><br/><br/>
+
+            <div className="container">
+                <div className="wd-divider">
+                    Favorite Movie
+                </div>
+                <br/>
+                <FavoriteComponentOther/>
+            </div>
             <br/><br/>
             <br/> <br/> <br/>
         </div>
+
     );
 }
 

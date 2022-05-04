@@ -10,23 +10,13 @@ import {
 const UserReducer = (state = [], action) => {
     switch (action.type) {
         case FIND_USER_BY_ID:
-            console.log("FIND_USER_BY_ID")
-            console.log(action.userInfo)
             return action.userInfo
-        // case UPDATE_USER:
-        //     return state.map(
-        //         user => user._id === action.user._id ?
-        //             action.user : user);
-        // case UPDATE_USER_REAL:
-        //     return state.map(
-        //         user => user._id === action.user._id ?
-        //             action.user : user);
         case UPDATE_USER_FAVORITE_MOVIE:
             return state.map(user => user._id === action.user._id ? action.user : user);
         case UPDATE_USER_HISTORY_MOVIE:
             return state.map(user => user._id === action.user._id ? action.user : user);
         default:
-            return user
+            return state;
     }
 }
 
