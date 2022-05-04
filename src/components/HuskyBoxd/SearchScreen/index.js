@@ -19,10 +19,12 @@ const SearchScreen = () => {
     // const movieList = useSelector(state => state.movieList);
     // let movieIdList = [];
 
+
     const searchByTitle = async () => {
         const searchString = titleSearchRef.current.value || movieSearch
         if (!searchString) {
-            navigate(`/huskyboxd/search/`);
+            // navigate(`/huskyboxd/search/`);
+
             return;
         }
         const response = await axios.get(`${searchUrl}&s=${searchString}`)
@@ -34,13 +36,16 @@ const SearchScreen = () => {
         searchByTitle()
     }, [])
 
-    console.log(typeof(movies[0]));
+
     let movies_ls = [];
+    if (movies){
     for (let i = 0; i < movies.length; i++) {
         movies_ls.push(movies[i].imdbID);
     }
+    }
+
     const test = findMovieByID(movies_ls[0]);
-    console.log(test);
+
 
 
 
