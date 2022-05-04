@@ -16,8 +16,6 @@ const Comments = ({movie}) => {
         }
         movie = historyList;
     }
-    console.log("detail check");
-    console.log(movie);
     return (
         <div className="ms-4">
             <div style={{borderBottom: "1px solid #456", display: "center"}}>

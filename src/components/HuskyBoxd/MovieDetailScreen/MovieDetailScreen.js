@@ -18,6 +18,7 @@ const MovieDetailScreen = () => {
         <>
             <Navigation login={true}/>
             <MovieDetailComponent movie={movie}/>
+
             <div className="container justify-content-center">
                 <CreateComment movie={movie}/>
             </div>

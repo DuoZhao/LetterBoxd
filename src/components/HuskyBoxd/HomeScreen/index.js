@@ -29,44 +29,36 @@ const HomeScreen = () => {
                     <Navigation login={login}/>
                 </div>
 
-                {/*Homepage*/}
-                <div className="row mt-auto">
-                    <HomeComponents profile={profile}/>
-                </div>
+                <div className="container">
 
-                {/*Watched list*/}
-                <div className="row mt-1">
-                    <div className="col-1"/>
-                    <div className="col-10">
-                        <MoviesList movie={movie}/>
+                    {/*Homepage*/}
+                    <div className="row mt-auto">
+                        <HomeComponents profile={profile}/>
                     </div>
-                    <div className="col-1"/>
-                </div>
 
-                {/*Popular movie list*/}
-                {/*<div className="row mt-1">*/}
-                {/*    <div className="col-1"/>*/}
-                {/*    <div className="col-10">*/}
-                {/*        <MoviesList/>*/}
-                {/*    </div>*/}
-                {/*    <div className="col-1"/>*/}
-                {/*</div>*/}
-
+                    {/*Watched list*/}
+                    <div className="row mt-1">
+                        <div className="col-1"/>
+                            <div className="col-10">
+                            <MoviesList movie={movie}/>
+                        </div>
+                        <div className="col-1"/>
+                    </div>
                 {/*Comments*/}
                 <div className="row mt-auto">
                     <div className="col-1"/>
 
-                    <div className="col-6">
+                    <div className="col-5">
                         <Comments movie={movie}/>
                     </div>
 
-                    <div className="col-1"/>
-
-                    <div className="col-3">
+                    <div className="col-5" style={{display: "center"}}>
                         <PopularList/>
                     </div>
 
                     <div className="col-1"/>
+                </div>
+
                 </div>
             </div>
         </>
