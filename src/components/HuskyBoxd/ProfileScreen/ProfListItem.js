@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "../Styles/card.css";
 import {useDispatch} from "react-redux";
 import {useProfile} from "../contexts/profile-context";
@@ -13,26 +13,22 @@ import {useSelector} from "react-redux";
 
 
 const ProfListItem = () => {
-
     const [finalProfile, setFinalProfile] = useState();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const NavigateToEditProfile = async () => {
-        navigate(`/huskyboxd/editprofile`)
+        navigate(`/huskyboxd/editprofile`);
     }
-    const {userId} = useParams()
     let {profile} = useProfile();
-    const dispatch = useDispatch();
     const redirectLogin = () => {
-        if (userId) {
-            setFinalProfile(findUserByID(dispatch, userId));
-        } else if (!userId && profile) {
+        if (profile) {
             setFinalProfile(profile);
-        } else if (!profile) {
-            navigate(`/huskyboxd/login`)
+        } else {
+            navigate(`/huskyboxd/login`);
         }
     }
-
-    useEffect(() => { redirectLogin();}, []);
+    useEffect(() => {
+        redirectLogin();
+    }, []);
 
 
     return (
@@ -279,7 +275,7 @@ const ProfListItem = () => {
                     Favorite Movie
                 </div>
                 <br/>
-                <FavoriteComponent />
+                <FavoriteComponent/>
             </div>
 
             </div>

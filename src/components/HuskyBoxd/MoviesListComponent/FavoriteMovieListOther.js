@@ -2,22 +2,27 @@ import MoviesList from "./index";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {findMovieIDList} from "../actions/movie-action";
-import {useProfile} from "../contexts/profile-context";
+import {useParams} from "react-router-dom";
+import {findUserByID} from "../actions/user-actions";
 
 
-const FavoriteComponent = () => {
+const FavoriteComponentOther = () => {
     const dispatch = useDispatch();
-    let {profile} = useProfile();
-
+    const {userId} = useParams()
     let movies = useSelector(state => state.movie);
-    useEffect(() => {
-        findMovieIDList(dispatch, profile.favorite_movie);
-    }, []);
-
-    function isPromise(p) {
-        return typeof p === 'object' && typeof p.then === 'function';
+    const called = async () => {
+        const userInfo = await findUserByID(dispatch, userId);
+        await findMovieIDList(dispatch, userInfo.favorite_movie)
     }
-
+    useEffect(() => {
+        called()
+    }, []);
+    function isPromise(p) {
+        if (typeof p === 'object' && typeof p.then === 'function') {
+            return true;
+        }
+        return false;
+    }
     for (let i = 0; i < movies.length; i++) {
         if (isPromise(movies[i])) {
             movies.pop(movies[i]);
@@ -30,4 +35,4 @@ const FavoriteComponent = () => {
     )
 }
 
-export default FavoriteComponent
+export default FavoriteComponentOther

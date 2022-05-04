@@ -8,6 +8,10 @@ export const UPDATE_USER_REAL = 'UPDATE_USER_REAL';
 
 export const findUserByID = async (dispatch, userId) => {
     const userInfo =  await service.findUserByID(userId);
+    dispatch({
+        type: FIND_USER_BY_ID,
+        userInfo
+    });
     return userInfo;
 }
 

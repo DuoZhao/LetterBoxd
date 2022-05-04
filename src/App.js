@@ -22,6 +22,7 @@ import MovieDetailScreen from "./components/HuskyBoxd/MovieDetailScreen/MovieDet
 import PrivacyScreen from "./components/HuskyBoxd/PopularList/privacy";
 import {ProfileProvider} from "./components/HuskyBoxd/contexts/profile-context";
 import SecureRoute from "./components/HuskyBoxd/secures/secure-route";
+import OtherProfileScreen from "./components/HuskyBoxd/ProfileScreen/OtherProfileScreen";
 
 function App() {
     return (
@@ -35,9 +36,7 @@ function App() {
                         </SecureRoute>
                     }/>
                     <Route path="profile/:userId" element={
-                        <SecureRoute>
-                            <ProfileScreen/>
-                        </SecureRoute>
+                        <OtherProfileScreen/>
                     }/>
                     <Route path="login" element={<LoginScreen/>}/>
                     <Route path="detail" element={<MovieDetailScreen/>}/>
