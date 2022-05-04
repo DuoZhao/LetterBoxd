@@ -10,11 +10,14 @@ const Comments = ({movie}) => {
                 movie[i]["history_comment"][j]["Year"] = movie[i]["Year"];
                 movie[i]["history_comment"][j]["Title"] = movie[i]["Title"];
                 movie[i]["history_comment"][j]["imdbID"] = movie[i]["imdbID"];
+                movie[i]["history_comment"][j].isDetail = false;
                 historyList["history_comment"].push(movie[i]["history_comment"][j])
             }
         }
         movie = historyList;
     }
+    console.log("detail check");
+    console.log(movie);
     return (
         <div className="ms-4">
             <div style={{borderBottom: "1px solid #456", display: "center"}}>

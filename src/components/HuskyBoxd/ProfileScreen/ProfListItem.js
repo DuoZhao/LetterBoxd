@@ -1,38 +1,28 @@
 import React, {useEffect, useState} from "react";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "../Styles/card.css";
-import {useDispatch} from "react-redux";
 import {useProfile} from "../contexts/profile-context";
-import {findUserByID} from "../actions/user-actions";
 import Navigation from "../Navigation";
-import {findMovieIDList, findMovieByimdbID} from "../actions/movie-action";
 import FavoriteComponent from "../MoviesListComponent/FavoriteMovieList";
-import HistoryComponent from "../MoviesListComponent/HistoryMovieList";
-import {useSelector} from "react-redux";
-
 
 
 const ProfListItem = () => {
-
     const [finalProfile, setFinalProfile] = useState();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const NavigateToEditProfile = async () => {
-        navigate(`/huskyboxd/editprofile`)
+        navigate(`/huskyboxd/editprofile`);
     }
-    const {userId} = useParams()
     let {profile} = useProfile();
-    const dispatch = useDispatch();
     const redirectLogin = () => {
-        if (userId) {
-            setFinalProfile(findUserByID(dispatch, userId));
-        } else if (!userId && profile) {
+        if (profile) {
             setFinalProfile(profile);
-        } else if (!profile) {
-            navigate(`/huskyboxd/login`)
+        } else {
+            navigate(`/huskyboxd/login`);
         }
     }
-
-    useEffect(() => { redirectLogin();}, []);
+    useEffect(() => {
+        redirectLogin();
+    }, []);
 
 
     // let movies = useSelector(state => state.movie);
@@ -71,8 +61,10 @@ const ProfListItem = () => {
             {/*    /!*<img src={profile.bannerPicture} height="550px" width="100%"/>*!/*/}
             {/*</div>*/}
             <div style={{"height": "400px"}}>
-                {finalProfile && finalProfile.bannerPicture && < img src={finalProfile.bannerPicture} height="550px" width="100%"/>}
-                {finalProfile && !finalProfile.bannerPicture && < img src="../pictures/cyperpunk.jpg" height="550px" width="100%"/>}
+                {finalProfile && finalProfile.bannerPicture &&
+                < img src={finalProfile.bannerPicture} height="550px" width="100%"/>}
+                {finalProfile && !finalProfile.bannerPicture &&
+                < img src="../pictures/cyperpunk.jpg" height="550px" width="100%"/>}
             </div>
 
             {/*avatar*/}
@@ -84,9 +76,10 @@ const ProfListItem = () => {
                         {/*<img src={!finalProfile && "../pictures/ready-player-one.jpg.jpg"} height="100px" width="100px"*/}
                         {/*     style={{"border-radius": "50%", "float": "left"}}/>*/}
                         {profile.profilePicture && <img src={profile.profilePicture} height="100px" width="100px"
-                                                             style={{"border-radius": "50%", "float": "left"}}/>}
-                        {!profile.profilePicture && <img src="../pictures/default_avatar.jpg" height="100px" width="100px"
-                                                              style={{"border-radius": "50%", "float": "left"}}/>}
+                                                        style={{"border-radius": "50%", "float": "left"}}/>}
+                        {!profile.profilePicture &&
+                        <img src="../pictures/default_avatar.jpg" height="100px" width="100px"
+                             style={{"border-radius": "50%", "float": "left"}}/>}
                     </div>
                     <div className="col-2">
                         <span style={{"height": "50px", "padding-left": "40px"}}>
@@ -95,15 +88,12 @@ const ProfListItem = () => {
                                "font-size": "30px"
                            }}><strong>{finalProfile && finalProfile.username}</strong></text>
                            <br/>
-                            {userId ? `` :
-                                <div style={{"padding-left": "70px"}}>
-                                    <button onClick={() => NavigateToEditProfile()}
-                                            style={{"color": "grey", "font-size": "15px"}}>
-                                        Edit Profile
-                                    </button>
-                                </div>
-                            }
-
+                            <div style={{"padding-left": "70px"}}>
+                                <button onClick={() => NavigateToEditProfile()}
+                                        style={{"color": "grey", "font-size": "15px"}}>
+                                    Edit Profile
+                                </button>
+                            </div>
                         </span>
                     </div>
                 </div>
@@ -260,7 +250,6 @@ const ProfListItem = () => {
             </div>
 
 
-
             <br/><br/><br/>
 
             <div className="container">
@@ -268,9 +257,8 @@ const ProfListItem = () => {
                     Favorite Movie
                 </div>
                 <br/>
-                <FavoriteComponent />
+                <FavoriteComponent finalProfile={finalProfile}/>
             </div>
-
 
 
             <br/><br/>
